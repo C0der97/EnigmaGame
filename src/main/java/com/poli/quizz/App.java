@@ -25,23 +25,19 @@ public class App extends Application {
     public void start(Stage stage) {
 
         try {
-            //stream = App.class.getResourceAsStream("test/test.fxml");
-            //var cosa = getClass().getResource("C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\Quizz\\src\\main\\java\\com\\poli\\quizz\\App.fxml");
             FXMLLoader loadr = new FXMLLoader(getClass().getResource("/fxml/App.fxml"));
-
-            //BufferedInputStream buffer = new BufferedInputStream(
-            //new FileInputStream(new File("C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\Quizz\\src\\main\\resources\\audio\\lofi.mp3")));
             Parent load = loadr.load();
-            /// var scene = new Scene(new StackPane(btn), 480, 640);
             var scene = new Scene(load);
             MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
+            var controllerInitial = (AppController) loadr.getController();
+            controllerInitial.setStage(stage);
             stage.setScene(scene);
             stage.show();
-            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/audio/lofi.wav").getPath()));
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/audio/MoonKnight.wav").getPath()));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInput);
             clip.start();
-
+            controllerInitial.setClip(clip);
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
             System.out.println("Debe ingresar obligatoriamente un número entero.");
         }

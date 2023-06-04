@@ -18,7 +18,7 @@
          <Blend />
       </effect>
    </ImageView>
-        <MFXButton buttonType="RAISED" layoutX="40.0" layoutY="269.0" onAction="#Click" prefHeight="32.0" prefWidth="247.0" rippleColor="WHITE" style="-fx-background-color: #edc95e; -fx-text-fill: #ffffff;" text="Jugar" textFill="WHITE">
+        <MFXButton buttonType="RAISED" layoutX="40.0" layoutY="269.0" onAction="#ChangeScene" prefHeight="32.0" prefWidth="247.0" rippleColor="WHITE" style="-fx-background-color: #edc95e; -fx-text-fill: #ffffff;" text="Jugar" textFill="WHITE">
       <font>
          <Font name="Blackadder ITC" size="18.0" />
       </font></MFXButton>
