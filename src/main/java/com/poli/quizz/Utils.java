@@ -5,7 +5,6 @@
 package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta1;
-import com.poli.quizz.Enums.Pregunta2;
 import java.io.File;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,15 +30,9 @@ public class Utils {
             Stage stageInitial) throws UnsupportedAudioFileException {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(sceneName));
-            Parent root = loader.load();
-            Scene newScene = new Scene(root);
             if (music != null) {
                 music.stop();
             }
-            Object sceneController = loader.getController();
-            changeSceneByClass(sceneController, music, stageInitial, newScene);
-
             if (!isReproducingAudio && StateManager.audioReproduce) {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/toneGameEgypt.wav").getPath()));
                 Clip clip = AudioSystem.getClip();
@@ -48,38 +41,18 @@ public class Utils {
                 Utils.isReproducingAudio = true;
             }
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(sceneName));
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            Object sceneController = loader.getController();
+
+            PreguntaMultipleController controllerInstance = (PreguntaMultipleController) sceneController;
+            controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music);
+            controllerInstance.setRespuestaCorrecta(Pregunta1.Egg);
+            controllerInstance.setNextScene();
+            stageInitial.setScene(newScene);
         } catch (Exception e) {
             System.out.println("Ha Ocurrido un error");
         }
-    }
-
-    void changeSceneByClass(
-            Object controllerData,
-            Clip music,
-            Stage stageInitial,
-            Scene nuevaScene) {
-
-        var controllerClass = controllerData.getClass().toString();
-
-        switch (controllerClass) {
-            case "class com.poli.quizz.PreguntaMultipleController":
-                PreguntaMultipleController controllerInstance = (PreguntaMultipleController) controllerData;
-                controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music);
-                controllerInstance.setRespuestaCorrecta(Pregunta1.Egg);
-                controllerInstance.setNextScene();
-                break;
-
-            case "class com.poli.quizz.PreguntaDosController":
-                PreguntaDosController controllerInstanceTwo = (PreguntaDosController) controllerData;
-                controllerInstanceTwo.initialize(new PreguntaMultiple(), stageInitial, music);
-                controllerInstanceTwo.setRespuestaCorrecta(Pregunta2.Abocado);
-                controllerInstanceTwo.setNextScene();
-                break;
-
-            default:
-                throw new AssertionError();
-        }
-        stageInitial.setScene(nuevaScene);
-
     }
 }

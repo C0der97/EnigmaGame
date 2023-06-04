@@ -4,8 +4,12 @@
  */
 package com.poli.quizz;
 
+import com.poli.quizz.Enums.Pregunta2;
 import java.io.File;
 import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -49,27 +53,50 @@ public class MultipleBaseController {
         int optionSelected = Integer.parseInt(optPane.getId());
         ImageView opt = (ImageView) optPane.getChildren().get(0);
         opt.setStyle("-fx-opacity: 0.5");
-        if (this.model.checkRespuestaCorrecta(optionSelected) && 
-                StateManager.audioReproduce) {
+        if (this.model.checkRespuestaCorrecta(optionSelected)) {
             reproducirSonidoPorRespuesta("/passed.wav");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
             alert.showAndWait();
-        } else if(!this.model.checkRespuestaCorrecta(optionSelected) && 
-                StateManager.audioReproduce) {
+        } else {
             reproducirSonidoPorRespuesta("/wrong.wav");
             Alert alert = new Alert(Alert.AlertType.ERROR, "Respuesta Incorrecta!! ");
             alert.showAndWait();
         }
 
-        this.Utilidades.ChangeSceneUtil(this.music, urlScene, this.stag);
+        this.changeScene();
+    }
 
+    void changeScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(this.urlScene));
+        Parent root = loader.load();
+        Scene newScene = new Scene(root);
+        if (this.music != null) {
+            this.music.stop();
+        }
+        Object sceneController = loader.getController();
+
+        var controllerClass = sceneController.getClass().toString();
+
+        switch (controllerClass) {
+            case "class com.poli.quizz.PreguntaDosController":
+                PreguntaDosController controllerInstanceTwo = (PreguntaDosController) sceneController;
+                controllerInstanceTwo.initialize(new PreguntaMultiple(), this.stag, music);
+                controllerInstanceTwo.setRespuestaCorrecta(Pregunta2.Abocado);
+                controllerInstanceTwo.setNextScene();
+                break;
+
+            default:
+                throw new AssertionError();
+        }
+        this.stag.setScene(newScene);
     }
 
     void reproducirSonidoPorRespuesta(String nombreSonido) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource(nombreSonido).getPath()));
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioInput);
-        clip.start();
-
+        if (StateManager.audioReproduce) {
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource(nombreSonido).getPath()));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.start();
+        }
     }
 }
