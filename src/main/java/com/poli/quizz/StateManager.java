@@ -12,4 +12,5 @@ package com.poli.quizz;
 public class StateManager {
     public static int Puntos = 0;    
     public static int RespuestasCorrectas = 0;
+    public static final boolean audioReproduce = false;
 }

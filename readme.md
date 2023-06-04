@@ -10,4 +10,14 @@ https://openjfx.io/openjfx-docs/#install-java
 
 Luego de descargar se puede dirigir a la carpeta EnigmaGame/Target abrir el CMD y correr el comando
 
+
 java --module-path "path\Java\javafx-sdk-20.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar EnigmaGame.jar
+
+Ejemplo:
+
+
+java --module-path "C:\Program Files\Java\javafx-sdk-20.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar EnigmaGame.jar
+
+
+--module-path "C:\Program Files\Java\javafx-sdk-20.0.1\lib" --add-modules javafx.controls,javafx.fxml
+

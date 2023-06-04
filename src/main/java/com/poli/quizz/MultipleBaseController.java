@@ -49,12 +49,14 @@ public class MultipleBaseController {
         int optionSelected = Integer.parseInt(optPane.getId());
         ImageView opt = (ImageView) optPane.getChildren().get(0);
         opt.setStyle("-fx-opacity: 0.5");
-        if (this.model.checkRespuestaCorrecta(optionSelected)) {
-            reproducirSonidoPorRespuesta("/audio/passed.wav");
+        if (this.model.checkRespuestaCorrecta(optionSelected) && 
+                StateManager.audioReproduce) {
+            reproducirSonidoPorRespuesta("/passed.wav");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
             alert.showAndWait();
-        } else {
-            reproducirSonidoPorRespuesta("/audio/wrong.wav");
+        } else if(!this.model.checkRespuestaCorrecta(optionSelected) && 
+                StateManager.audioReproduce) {
+            reproducirSonidoPorRespuesta("/wrong.wav");
             Alert alert = new Alert(Alert.AlertType.ERROR, "Respuesta Incorrecta!! ");
             alert.showAndWait();
         }

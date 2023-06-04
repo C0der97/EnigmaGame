@@ -33,11 +33,13 @@ public class App extends Application {
             controllerInitial.setStage(stage);
             stage.setScene(scene);
             stage.show();
-            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/audio/MoonKnight.wav").getPath()));
+            if(StateManager.audioReproduce){
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/MoonKnight.wav").getPath()));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInput);
             clip.start();
-            controllerInitial.setClip(clip);
+            controllerInitial.setClip(clip);    
+            }
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
             System.out.println("Ha Ocurrido un error");
         }
