@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.AppController">
+   <ImageView fitHeight="352.0" fitWidth="340.0" layoutX="-20.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../fondo.gif" />
+      </image>
+   </ImageView>
+   <ImageView fitHeight="265.0" fitWidth="260.0" layoutX="30.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../X5Nd.gif" />
+      </image>
+      <effect>
+         <Blend />
+      </effect>
+   </ImageView>
+   <Label alignment="CENTER" layoutY="-9.0" prefHeight="47.0" prefWidth="302.0" text="Adivina Adivinador" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font>
+   </Label>
+        <MFXButton buttonType="RAISED" layoutX="36.0" layoutY="294.0" onAction="#Click" prefHeight="32.0" prefWidth="247.0" rippleColor="WHITE" style="-fx-background-color: #6600a1; -fx-text-fill: #ffffff;" text="Iniciar" textFill="WHITE" />
+</AnchorPane>
