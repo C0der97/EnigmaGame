@@ -49,21 +49,25 @@ public class MultipleBaseController {
         int optionSelected = Integer.parseInt(optPane.getId());
         ImageView opt = (ImageView) optPane.getChildren().get(0);
         opt.setStyle("-fx-opacity: 0.5");
-
-        AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/audio/passed.wav").getPath()));
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioInput);
-        clip.start();
-
         if (this.model.checkRespuestaCorrecta(optionSelected)) {
+            reproducirSonidoPorRespuesta("/audio/passed.wav");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
             alert.showAndWait();
         } else {
+            reproducirSonidoPorRespuesta("/audio/wrong.wav");
             Alert alert = new Alert(Alert.AlertType.ERROR, "Respuesta Incorrecta!! ");
             alert.showAndWait();
         }
 
         this.Utilidades.ChangeSceneUtil(this.music, urlScene, this.stag);
+
+    }
+
+    void reproducirSonidoPorRespuesta(String nombreSonido) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource(nombreSonido).getPath()));
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInput);
+        clip.start();
 
     }
 }

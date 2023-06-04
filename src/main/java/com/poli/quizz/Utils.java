@@ -39,16 +39,17 @@ public class Utils {
             music.stop();
             Object sceneController = loader.getController();
             changeSceneByClass(sceneController, music, stageInitial, newScene);
-            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/audio/toneGameEgypt.wav").getPath()));
 
             if (!isReproducingAudio) {
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/audio/toneGameEgypt.wav").getPath()));
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start();
                 Utils.isReproducingAudio = true;
             }
 
-        } catch (IOException | LineUnavailableException e) {
+        } catch (Exception   e ) {
+             System.out.println("Ha Ocurrido un error");
         }
     }
 

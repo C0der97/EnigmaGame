@@ -39,7 +39,7 @@ public class App extends Application {
             clip.start();
             controllerInitial.setClip(clip);
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
-            System.out.println("Debe ingresar obligatoriamente un número entero.");
+            System.out.println("Ha Ocurrido un error");
         }
 
     }
