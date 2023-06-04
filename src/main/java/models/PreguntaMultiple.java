@@ -8,7 +8,7 @@ package models;
  *
  * @author bare-
  */
-public class PreguntaMultiple {
+public class PreguntaMultiple{
     
     
     private int RespuestaCorrecta = 0;
