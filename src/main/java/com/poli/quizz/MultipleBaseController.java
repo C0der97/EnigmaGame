@@ -54,11 +54,11 @@ public class MultipleBaseController {
         ImageView opt = (ImageView) optPane.getChildren().get(0);
         opt.setStyle("-fx-opacity: 0.5");
         if (this.model.checkRespuestaCorrecta(optionSelected)) {
-            reproducirSonidoPorRespuesta("/passed.wav");
+            reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/passed.wav");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
             alert.showAndWait();
         } else {
-            reproducirSonidoPorRespuesta("/wrong.wav");
+            reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/wrong.wav");
             Alert alert = new Alert(Alert.AlertType.ERROR, "Respuesta Incorrecta!! ");
             alert.showAndWait();
         }
@@ -93,7 +93,7 @@ public class MultipleBaseController {
 
     void reproducirSonidoPorRespuesta(String nombreSonido) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         if (StateManager.audioReproduce) {
-            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource(nombreSonido).getPath()));
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(Utils.downloadUsingStream(nombreSonido));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInput);
             clip.start();

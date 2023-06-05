@@ -5,7 +5,10 @@
 package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta1;
-import java.io.File;
+
+import java.io.*;
+import java.net.URL;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -34,7 +37,9 @@ public class Utils {
                 music.stop();
             }
             if (!isReproducingAudio && StateManager.audioReproduce) {
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/toneGameEgypt.wav").getPath()));
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(
+                        Utils.downloadUsingStream("https://rainhearth.000webhostapp.com/toneGameEgypt.wav")
+                );
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start();
@@ -54,5 +59,16 @@ public class Utils {
         } catch (Exception e) {
             System.out.println("Ha Ocurrido un error");
         }
+    }
+
+    public static InputStream downloadUsingStream(String urlResource) throws IOException {
+        URL url = new URL(urlResource);
+        //File targetFile = new File("MoonKnight.wav");
+        //OutputStream outStream = new FileOutputStream(targetFile);
+        BufferedInputStream bis = new BufferedInputStream(url.openStream());
+        //outStream.write(bis.readAllBytes());
+        InputStream is = new ByteArrayInputStream(bis.readAllBytes());
+        bis.close();
+        return is;
     }
 }
