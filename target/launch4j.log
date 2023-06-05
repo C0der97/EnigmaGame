@@ -1,0 +1,42 @@
+
+
+Version:	3.50
+CmdLine:	D:\Proyecto\EnigmaGame\target\Enigma.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	D:\Proyecto\EnigmaGame\target\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\HWAudioDriverLibs;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\xampp\php;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\bare-\AppData\Local\Microsoft\WindowsApps;C:\Users\bare-\AppData\Local\GitHubDesktop\bin;C:\Users\bare-\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\bare-\AppData\Local\Microsoft\WindowsApps;C:\Users\bare-\.dotnet\tools;D:\Programas\Microsoft VS Code\bin;C:\Program Files\Java\jdk-17.0.5\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\HWAudioDriverLibs;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\xampp\php;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\bare-\AppData\Local\Microsoft\WindowsApps;C:\Users\bare-\AppData\Local\GitHubDesktop\bin;C:\Users\bare-\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\bare-\AppData\Local\Microsoft\WindowsApps;C:\Users\bare-\.dotnet\tools;D:\Programas\Microsoft VS Code\bin;C:\Program Files\Java\jdk-17.0.5\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\HWAudioDriverLibs\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\xampp\php\bin\javaw.exe (not found)
+Check launcher:	C:\WINDOWS\system32\bin\javaw.exe (not found)
+Check launcher:	C:\WINDOWS\bin\javaw.exe (not found)
+Check launcher:	C:\WINDOWS\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\WINDOWS\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\WINDOWS\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\dotnet\bin\javaw.exe (not found)
+Check launcher:	C:\Users\bare-\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\bare-\AppData\Local\GitHubDesktop\bin\javaw.exe (not found)
+Check launcher:	C:\Users\bare-\AppData\Local\JetBrains\Toolbox\scripts\bin\javaw.exe (not found)
+Check launcher:	C:\Users\bare-\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\bare-\.dotnet\tools\bin\javaw.exe (not found)
+Check launcher:	D:\Programas\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17.0.5\bin\javaw.exe (OK)
+Version string: 1.017.000_005 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-17.0.5\bin\javaw.exe
+Launcher args:	-jar "D:\Proyecto\EnigmaGame\target\Enigma.exe"
+Args length:	47/32768 chars
+Exit code:	0
