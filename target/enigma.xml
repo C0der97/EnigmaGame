@@ -3,7 +3,7 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>D:\Proyecto\EnigmaGame\target\EnigmaGame.jar</jar>
-  <outfile>D:\Proyecto\EnigmaGame\target\Enigma.exe</outfile>
+  <outfile>D:\Proyecto\EnigmaGame\target\EnigmaGame.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -18,7 +18,7 @@
     <path>%JAVA_HOME%;%PATH%</path>
     <requiresJdk>false</requiresJdk>
     <requires64Bit>false</requires64Bit>
-    <minVersion></minVersion>
+    <minVersion>1.8.0</minVersion>
     <maxVersion></maxVersion>
   </jre>
 </launch4jConfig>
