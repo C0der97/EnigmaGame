@@ -4,6 +4,10 @@ import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,14 +38,39 @@ public class App extends Application {
             stage.setScene(scene);
             stage.show();
             if(StateManager.audioReproduce){
-            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(getClass().getResource("/MoonKnight.wav").getPath()));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInput);
-            clip.start();
-            controllerInitial.setClip(clip);    
+                ExecutorService executorService = Executors.newSingleThreadExecutor();
+                executorService.execute(() -> {
+                    Utils u = new Utils();
+                    AudioInputStream audioInput = null;
+                    try {
+                        audioInput = AudioSystem.getAudioInputStream(Utils.downloadUsingStream(
+                                "https://rainhearth.000webhostapp.com/MoonKnight.wav"
+                        ));
+                    } catch (UnsupportedAudioFileException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    Clip clip = null;
+                    try {
+                        clip = AudioSystem.getClip();
+                    } catch (LineUnavailableException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        clip.open(audioInput);
+                    } catch (LineUnavailableException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    clip.start();
+                    controllerInitial.setClip(clip);
+                });
+                executorService.shutdown();
             }
-        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
-            System.out.println("Ha Ocurrido un error");
+        } catch (IOException ex) {
+            System.out.println("Ha Ocurrido un error "+ex.getMessage());
         }
 
     }
