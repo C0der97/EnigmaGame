@@ -12,6 +12,6 @@ public class Pregunta2 {
 
     public static final int Tomato = 1;
     public static final int Abocado = 2;
-    public static final int Salt = 2;
+    public static final int Salt = 4;
     public static final int Soup = 3;
 }

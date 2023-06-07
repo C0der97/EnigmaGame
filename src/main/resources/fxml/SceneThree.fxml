@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaDosController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaTresController">
    <ImageView fitHeight="380.0" fitWidth="330.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../3.png" />
@@ -29,7 +29,7 @@
                <Font name="Berlin Sans FB" size="19.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="174.0" prefHeight="47.0" prefWidth="149.0" text="Pregunta 2/3" textFill="WHITE">
+         <Label alignment="CENTER" layoutX="174.0" prefHeight="47.0" prefWidth="149.0" text="Pregunta 3/3" textFill="WHITE">
             <font>
                <Font name="System Bold" size="20.0" />
             </font>
@@ -44,27 +44,27 @@
                <Image url="@../tomate.png" />
             </image>
          </ImageView>
-         <Label layoutX="6.0" layoutY="35.0" text="Tomato" />
+         <Label layoutX="14.0" layoutY="35.0" text="Wool" />
       </children>
    </Pane>
-   <Pane id="3" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+   <Pane id="4" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../sal.png" />
+               <Image url="@../bear.png" />
             </image>
          </ImageView>
-         <Label layoutX="18.0" layoutY="37.0" text="Salt" />
+         <Label layoutX="14.0" layoutY="37.0" prefHeight="17.0" prefWidth="27.0" text="Bear" />
       </children>
    </Pane>
    <Pane id="4" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
-         <ImageView id="4" fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView id="3" fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../sopa-caliente.png" />
             </image>
          </ImageView>
-         <Label layoutX="16.0" layoutY="38.0" text="Soup" />
+         <Label layoutX="17.0" layoutY="39.0" text="Knife" />
       </children>
    </Pane>
    <Pane id="2" layoutX="181.0" layoutY="155.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -74,7 +74,7 @@
                <Image url="@../aguacate.png" />
             </image>
          </ImageView>
-         <Label layoutX="8.0" layoutY="35.0" text="Abocado" />
+         <Label layoutX="12.0" layoutY="35.0" text="Sheep" />
       </children>
    </Pane>
    <ImageView fitHeight="41.0" fitWidth="88.0" layoutX="275.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
@@ -82,6 +82,6 @@
          <Image url="@../soundWave.gif" />
       </image>
    </ImageView>
-   <Label id="puntos" layoutX="136.0" layoutY="18.0" prefHeight="17.0" prefWidth="42.0" text="Ptos" textFill="WHITE" />
-   <Label layoutX="126.0" layoutY="17.0" prefHeight="17.0" prefWidth="11.0" text="1" textFill="WHITE" />
+   <Label id="puntos" layoutX="136.0" layoutY="15.0" prefHeight="17.0" prefWidth="42.0" text="Ptos" textFill="WHITE" />
+   <Label layoutX="126.0" layoutY="14.0" prefHeight="17.0" prefWidth="11.0" text="1" textFill="WHITE" />
 </AnchorPane>

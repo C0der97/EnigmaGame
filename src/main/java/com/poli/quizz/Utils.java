@@ -52,7 +52,7 @@ public class Utils {
             Object sceneController = loader.getController();
 
             PreguntaMultipleController controllerInstance = (PreguntaMultipleController) sceneController;
-            controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music);
+            controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music,newScene);
             controllerInstance.setRespuestaCorrecta(Pregunta1.Egg);
             controllerInstance.setNextScene();
             stageInitial.setScene(newScene);

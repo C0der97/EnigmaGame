@@ -29,6 +29,7 @@ public class App extends Application {
     public void start(Stage stage) {
 
         try {
+            stage.setResizable(false);
             FXMLLoader loadr = new FXMLLoader(getClass().getResource("/fxml/App.fxml"));
             Parent load = loadr.load();
             var scene = new Scene(load);

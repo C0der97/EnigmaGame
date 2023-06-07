@@ -23,4 +23,5 @@ public class PreguntaMultipleController extends MultipleBaseController {
     public void setNextScene() {
         this.urlScene = "/fxml/SceneTwo.fxml";
     }
+
 }

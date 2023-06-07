@@ -5,6 +5,7 @@
 package com.poli.quizz;
 
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -18,6 +19,7 @@ public class AppController {
 
     Stage stag;
     Clip music;
+    Scene mainScene;
     
     public void setStage(Stage initialWindow) {
         this.stag = initialWindow;
@@ -25,6 +27,10 @@ public class AppController {
 
     public void setClip(Clip music) {
         this.music = music;
+    }
+    
+    public void setScene(Scene mainS) {
+        this.mainScene = mainS;
     }
     
     public void ChangeScene(ActionEvent ev) throws UnsupportedAudioFileException {

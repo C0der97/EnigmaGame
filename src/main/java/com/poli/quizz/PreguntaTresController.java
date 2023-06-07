@@ -8,11 +8,8 @@ package com.poli.quizz;
  *
  * @author bare-
  */
-public class PreguntaDosController  extends MultipleBaseController{
-    
-
-    public void setNextScene(){
+public class PreguntaTresController extends MultipleBaseController{
+        public void setNextScene(){
         this.urlScene = "/fxml/SceneThree.fxml";
     }
-  
 }
