@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>19-ea+2</version>
+            <version>20</version>
             <type>jar</type>
         </dependency>
         <dependency>
