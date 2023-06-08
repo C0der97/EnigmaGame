@@ -57,26 +57,29 @@ public class MultipleBaseController {
         this.model.setRespuestaCorrecta(respuesta);
     }
 
-    public void onClickOption(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        Pane optPane = (Pane) event.getSource();
-        int optionSelected = Integer.parseInt(optPane.getId());
-        ImageView opt = (ImageView) optPane.getChildren().get(0);
-        opt.setStyle("-fx-opacity: 0.5");
-        if (this.model.checkRespuestaCorrecta(optionSelected)) {
-            StateManager.Puntos += 10;
-            StateManager.RespuestasCorrectas += 1;
-            reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/passed.wav");
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
-            alert.showAndWait();
-        } else {
-            StateManager.Puntos -= 10;
-            StateManager.RespuestasCorrectas -= 1;
-            reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/wrong.wav");
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Respuesta Incorrecta!! ");
-            alert.showAndWait();
-        }
-        this.changeScene();
+public void onClickOption(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    Pane optPane = (Pane) event.getSource();
+    int optionSelected = Integer.parseInt(optPane.getId());
+    ImageView opt = (ImageView) optPane.getChildren().get(0);
+    opt.setStyle("-fx-opacity: 0.5");
+    
+    if (this.model.checkRespuestaCorrecta(optionSelected)) {
+        StateManager.Puntos += 1; // Sumar 1 punto por respuesta correcta
+        StateManager.RespuestasCorrectas++;
+        reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/passed.wav");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
+        alert.showAndWait();
+    } else {
+        StateManager.Puntos -= 1; // Restar 1 punto por respuesta incorrecta
+        StateManager.RespuestasCorrectas--;
+        reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/wrong.wav");
+        Alert alert = new Alert(Alert.AlertType.ERROR, "Respuesta Incorrecta!! ");
+        alert.showAndWait();
     }
+    
+    this.changeScene();
+}
+
 
     void changeScene() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(this.urlScene));
@@ -99,7 +102,7 @@ public class MultipleBaseController {
             case "class com.poli.quizz.PreguntaTresController":
                 PreguntaTresController controllerInstanceThree = (PreguntaTresController) sceneController;
                 controllerInstanceThree.initialize(new PreguntaMultiple(), this.stag, music, newScene);
-                controllerInstanceThree.setRespuestaCorrecta(Pregunta3.Navaja);
+                controllerInstanceThree.setRespuestaCorrecta(Pregunta3.Knife);
                 controllerInstanceThree.setNextScene();
                 break;
 

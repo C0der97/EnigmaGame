@@ -12,5 +12,5 @@ public class Pregunta3 {
     public static final int Lana = 1;
     public static final int Oveja = 2;
     public static final int Oso = 4;
-    public static final int Navaja = 3;
+    public static final int Knife = 3;
 }

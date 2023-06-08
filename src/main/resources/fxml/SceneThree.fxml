@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaTresController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaTresController">
    <ImageView fitHeight="380.0" fitWidth="330.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../3.png" />
@@ -24,7 +24,7 @@
                <Font name="System Bold" size="20.0" />
             </font>
          </Label>
-         <Label layoutX="9.0" layoutY="49.0" prefHeight="41.0" prefWidth="307.0" text="Agua paso por aqui cate que no te vi" textFill="WHITE" wrapText="true">
+         <Label layoutX="9.0" layoutY="49.0" prefHeight="41.0" prefWidth="307.0" text="Lana sube, lana baja, ¿qué es?" textFill="WHITE" wrapText="true">
             <font>
                <Font name="Berlin Sans FB" size="19.0" />
             </font>
@@ -34,6 +34,8 @@
                <Font name="System Bold" size="20.0" />
             </font>
          </Label>
+         <Label layoutX="126.0" layoutY="16.0" prefHeight="17.0" prefWidth="11.0" textFill="WHITE" />
+         <Label id="puntos" layoutX="154.0" layoutY="16.0" prefHeight="17.0" prefWidth="27.0" text="Ptos" textFill="WHITE" />
       </children>
    </Pane>
    <Pane layoutX="69.0" layoutY="143.0" opacity="0.44" prefHeight="157.0" prefWidth="190.0" style="-fx-background-color: black; -fx-background-radius: 10;" />
@@ -41,7 +43,7 @@
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../tomate.png" />
+               <Image url="@../lana.png" />
             </image>
          </ImageView>
          <Label layoutX="14.0" layoutY="35.0" text="Wool" />
@@ -57,11 +59,11 @@
          <Label layoutX="14.0" layoutY="37.0" prefHeight="17.0" prefWidth="27.0" text="Bear" />
       </children>
    </Pane>
-   <Pane id="4" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+   <Pane id="3" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
-         <ImageView id="3" fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView id="4" fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../sopa-caliente.png" />
+               <Image url="@../cuchillo.png" />
             </image>
          </ImageView>
          <Label layoutX="17.0" layoutY="39.0" text="Knife" />
@@ -71,7 +73,7 @@
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../aguacate.png" />
+               <Image url="@../oveja.png" />
             </image>
          </ImageView>
          <Label layoutX="12.0" layoutY="35.0" text="Sheep" />
@@ -82,6 +84,4 @@
          <Image url="@../soundWave.gif" />
       </image>
    </ImageView>
-   <Label id="puntos" layoutX="136.0" layoutY="15.0" prefHeight="17.0" prefWidth="42.0" text="Ptos" textFill="WHITE" />
-   <Label layoutX="126.0" layoutY="14.0" prefHeight="17.0" prefWidth="11.0" text="1" textFill="WHITE" />
 </AnchorPane>

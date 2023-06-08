@@ -1,15 +1,15 @@
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\SystemInfo.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\App.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\Enums\Pregunta2.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\PreguntaDosController.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\EntryPoint.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\Enums\Pregunta1.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\StateManager.java
-D:\Proyecto\EnigmaGame\src\main\java\models\PreguntaMultiple.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\PreguntaTresController.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\Enums\Pregunta3.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\AppController.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\MultipleBaseController.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\Utils.java
-D:\Proyecto\EnigmaGame\src\main\java\com\poli\quizz\PreguntaMultipleController.java
-D:\Proyecto\EnigmaGame\src\main\java\module-info.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\Enums\Pregunta3.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\PreguntaDosController.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\models\PreguntaMultiple.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\EntryPoint.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\AppController.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\SystemInfo.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\module-info.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\MultipleBaseController.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\Enums\Pregunta2.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\StateManager.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\Utils.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\Enums\Pregunta1.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\PreguntaTresController.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\PreguntaMultipleController.java
+C:\Users\JHON SANCHEZ\Documents\NetBeansProjects\Enigma\EnigmaGame\src\main\java\com\poli\quizz\App.java
