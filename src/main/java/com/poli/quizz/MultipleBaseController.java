@@ -6,6 +6,7 @@ package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta2;
 import com.poli.quizz.Enums.Pregunta3;
+import com.poli.quizz.Enums.Pregunta4;
 import java.io.File;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -105,7 +106,12 @@ public void onClickOption(MouseEvent event) throws UnsupportedAudioFileException
                 controllerInstanceThree.setRespuestaCorrecta(Pregunta3.Knife);
                 controllerInstanceThree.setNextScene();
                 break;
-
+            case "class com.poli.quizz.PreguntaCuatroController":
+                PreguntaCuatroController controllerInstanceFour = (PreguntaCuatroController) sceneController;
+                controllerInstanceFour.initialize(new PreguntaMultiple(), this.stag, music, newScene);
+                controllerInstanceFour.setRespuestaCorrecta(Pregunta4.Clock);
+                controllerInstanceFour.setNextScene();
+                break;
             default:
                 throw new AssertionError();
         }

@@ -6,9 +6,9 @@ package com.poli.quizz;
 
 /**
  *
- * @author bare-
+ * @author JHON SANCHEZ
  */
-public class PreguntaTresController extends MultipleBaseController{
+public class PreguntaCuatroController extends MultipleBaseController{
         public void setNextScene(){
         this.urlScene = "/fxml/SceneFour.fxml";
     }

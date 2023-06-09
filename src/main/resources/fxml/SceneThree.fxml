@@ -29,7 +29,7 @@
                <Font name="Berlin Sans FB" size="19.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="174.0" prefHeight="47.0" prefWidth="149.0" text="Pregunta 3/3" textFill="WHITE">
+         <Label alignment="CENTER" layoutX="174.0" prefHeight="47.0" prefWidth="149.0" text="Pregunta 3/4" textFill="WHITE">
             <font>
                <Font name="System Bold" size="20.0" />
             </font>
