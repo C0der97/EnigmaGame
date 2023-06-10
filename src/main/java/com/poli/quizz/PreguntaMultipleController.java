@@ -4,16 +4,6 @@
  */
 package com.poli.quizz;
 
-import com.poli.quizz.Enums.Pregunta1;
-import com.poli.quizz.Enums.Pregunta2;
-import java.io.IOException;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javax.sound.sampled.Clip;
-import models.PreguntaMultiple;
-
 /**
  *
  * @author c0der97

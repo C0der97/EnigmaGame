@@ -17,7 +17,7 @@
          <Blend />
       </effect>
    </ImageView>
-   <Pane layoutX="-1.0" layoutY="-1.0" opacity="0.87" prefHeight="97.0" prefWidth="330.0" style="-fx-background-color: #000000;">
+   <Pane layoutX="-1.0" layoutY="-1.0" opacity="0.87" prefHeight="109.0" prefWidth="330.0" style="-fx-background-color: #000000;">
       <children>
          <Label alignment="CENTER" prefHeight="47.0" prefWidth="101.0" text="Nivel 1" textFill="WHITE">
             <font>
@@ -34,8 +34,9 @@
                <Font name="System Bold" size="20.0" />
             </font>
          </Label>
-         <Label layoutX="126.0" layoutY="16.0" prefHeight="17.0" prefWidth="11.0" textFill="WHITE" />
-         <Label id="puntos" layoutX="154.0" layoutY="16.0" prefHeight="17.0" prefWidth="27.0" text="Ptos" textFill="WHITE" />
+               <Label layoutX="145.0" layoutY="15.0" prefHeight="17.0" prefWidth="31.0" text="Ptos" textFill="WHITE" />
+         <Label id="puntos" layoutX="131.0" layoutY="15.0" prefHeight="17.0" prefWidth="17.0" text="0" textFill="WHITE" />
+         <Label id="userName" layoutX="138.0" layoutY="87.0" text="Username" textFill="WHITE" />
       </children>
    </Pane>
    <Pane layoutX="69.0" layoutY="143.0" opacity="0.44" prefHeight="157.0" prefWidth="190.0" style="-fx-background-color: black; -fx-background-radius: 10;" />

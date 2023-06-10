@@ -5,6 +5,8 @@
 package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta1;
+import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
+import io.github.palexdev.materialfx.css.themes.Themes;
 
 import java.io.*;
 import java.net.URL;
@@ -12,6 +14,7 @@ import java.net.URL;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -49,7 +52,13 @@ public class Utils {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(sceneName));
             Parent root = loader.load();
             Scene newScene = new Scene(root);
+            MFXThemeManager.addOn(newScene, Themes.DEFAULT, Themes.LEGACY);
             Object sceneController = loader.getController();
+            
+            Label userName = (Label) newScene.lookup("#userName");
+            if(userName != null){
+               userName.setText(StateManager.userName);
+            }
 
             PreguntaMultipleController controllerInstance = (PreguntaMultipleController) sceneController;
             controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music,newScene);

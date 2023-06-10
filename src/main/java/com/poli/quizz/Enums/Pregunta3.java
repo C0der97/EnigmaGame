@@ -9,6 +9,7 @@ package com.poli.quizz.Enums;
  * @author bare-
  */
 public class Pregunta3 {
+    
     public static final int Lana = 1;
     public static final int Oveja = 2;
     public static final int Oso = 4;
