@@ -5,6 +5,7 @@
 package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta1;
+import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
 
@@ -15,10 +16,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import models.PreguntaMultiple;
 
@@ -43,8 +47,10 @@ public final class Utils {
     static boolean isReproducingAudio = false;
 
     /**
-     * @param urlResource
-     * @return
+     * @param music
+     * @param sceneName
+     * @param stageInitial
+     * @throws javax.sound.sampled.UnsupportedAudioFileException
      * @throws IOException
      */
     public void ChangeSceneUtil(
@@ -82,7 +88,7 @@ public final class Utils {
                 Utils.isReproducingAudio = true;
             }
 
-        } catch (Exception e) {
+        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
             System.out.println("Ha Ocurrido un error");
         }
     }
@@ -94,15 +100,15 @@ public final class Utils {
      */
     public static InputStream downloadUsingStream(String urlResource) throws IOException {
         URL url = new URL(urlResource);
-        BufferedInputStream bis = new BufferedInputStream(url.openStream());
-        InputStream is = new ByteArrayInputStream(bis.readAllBytes());
-        bis.close();
+        InputStream is;
+        try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
+            is = new ByteArrayInputStream(bis.readAllBytes());
+        }
         return is;
     }
 
     /**
      * @param fxmlName
-     * @param classData
      * @return
      * @throws IOException
      */
@@ -112,9 +118,7 @@ public final class Utils {
     }
 
     /**
-     * @param sceneName
-     * @param stageInitial
-     * @param classData
+     * @param fxmlLoader
      * @return
      * @throws IOException
      */
@@ -132,5 +136,21 @@ public final class Utils {
      */
     public static Object getController(FXMLLoader loaderFxml) throws IOException {
        return loaderFxml.getController();
+    }
+    
+    public static void mostrarLoader(Stage escenario) throws InterruptedException{
+            StackPane loadingRoot = new StackPane();
+            final MFXProgressSpinner sp = new MFXProgressSpinner();
+            Label txt = new Label("Cargando...");
+            txt.setTextFill(Color.WHITE);
+            loadingRoot.getChildren().add(sp);
+            loadingRoot.getChildren().add(txt);
+            Scene indicador = new Scene(loadingRoot);
+            MFXThemeManager.addOn(indicador, Themes.DEFAULT, Themes.LEGACY);
+    
+            escenario.setTitle("Enigma");
+            loadingRoot.setStyle("-fx-background-color: rgba(0, 0, 0, 1);");
+            escenario.setScene(indicador);
+            escenario.show();
     }
 }

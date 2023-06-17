@@ -10,8 +10,24 @@ package com.poli.quizz;
  * @author bare-
  */
 public class StateManager {
-    public static int Puntos = 0;    
+    
+    /**
+     * Manejar puntos de juego
+     */
+    public static int Puntos = 0; 
+        
+    /**
+     * Controlar respuestas correctas
+     */
     public static int RespuestasCorrectas = 0;
+
+    /**
+     * activar audio de juego
+     */
     public static final boolean audioReproduce = false;
+        
+    /**
+     * Almacenar nombre de usuario
+     */
     public static String nombreUsuario = "";
 }

@@ -8,6 +8,10 @@ import com.poli.quizz.Enums.Pregunta2;
 import com.poli.quizz.Enums.Pregunta3;
 import com.poli.quizz.Enums.Pregunta4;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -33,25 +37,26 @@ public class MultipleBaseController {
 
     Stage stag;
     Clip music;
-    Scene mainScene;
+    AudioInputStream respuestaCorrectaSonido;
+    AudioInputStream respuestaIncorrectaSonido;
 
     String urlScene = "";
 
-/*
+    /*
 Inicializa controlador base
-*/    
+     */
     /**
      * @param model
      * @param initialWindow
      * @param music
      * @param main_Scene
+     * @throws javax.sound.sampled.UnsupportedAudioFileException
      */
     public void initialize(PreguntaMultiple model, Stage initialWindow, Clip music,
-            Scene main_Scene) {
+            Scene main_Scene) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         this.modelo = model;
         this.music = music;
         this.stag = initialWindow;
-        this.mainScene = main_Scene;
         Label lblPuntos = (Label) main_Scene.lookup("#puntos");
         if (lblPuntos != null) {
             lblPuntos.setText(Integer.toString(StateManager.Puntos));
@@ -60,6 +65,8 @@ Inicializa controlador base
         if (userName != null) {
             userName.setText(StateManager.nombreUsuario);
         }
+        this.respuestaCorrectaSonido = reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/passed.wav");
+        this.respuestaIncorrectaSonido = reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/wrong.wav");
     }
 
     void setRespuestaCorrecta(int respuesta) {
@@ -74,8 +81,9 @@ Inicializa controlador base
      * @throws UnsupportedAudioFileException
      * @throws IOException
      * @throws LineUnavailableException
+     * @throws java.lang.InterruptedException
      */
-    public void onClickOption(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    public void onClickOption(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
         Pane optPane = (Pane) event.getSource();
         int optionSelected = Integer.parseInt(optPane.getId());
         ImageView opt = (ImageView) optPane.getChildren().get(0);
@@ -84,21 +92,44 @@ Inicializa controlador base
         if (this.modelo.checkRespuestaCorrecta(optionSelected)) {
             StateManager.Puntos += 10; // Sumar 10 puntos por respuesta correcta
             StateManager.RespuestasCorrectas++;
-            reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/passed.wav");
+            if (this.respuestaCorrectaSonido != null) {
+                Clip sonido = AudioSystem.getClip();
+                sonido.open(this.respuestaCorrectaSonido);
+                sonido.start();
+            }
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
             alert.showAndWait();
         } else {
             StateManager.Puntos -= 10; // Restar 10 puntos por respuesta incorrecta
             StateManager.RespuestasCorrectas--;
-            reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/wrong.wav");
+            if (this.respuestaIncorrectaSonido != null) {
+                Clip sonido = AudioSystem.getClip();
+                sonido.open(this.respuestaIncorrectaSonido);
+                sonido.start();
+            }
             Alert alert = new Alert(Alert.AlertType.ERROR, "Respuesta Incorrecta!! ");
             alert.showAndWait();
         }
-        this.changeScene();
+        Utils.mostrarLoader(this.stag);
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException ex) {
+            }
+            Platform.runLater(() -> {
+                try {
+                    this.changeScene();
+                } catch (IOException | UnsupportedAudioFileException | LineUnavailableException ex) {
+                    System.out.println(Arrays.toString(ex.getStackTrace()));
+                }
+            });
+        });
+
     }
 
-    void changeScene() throws IOException {
-        FXMLLoader loader = Utils.getInstance().getFxmlLoader(this.urlScene);;
+    void changeScene() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+        FXMLLoader loader = Utils.getInstance().getFxmlLoader(this.urlScene);
         Scene newScene = Utils.createScene(loader);
 
         if (this.music != null) {
@@ -133,12 +164,9 @@ Inicializa controlador base
         this.stag.setScene(newScene);
     }
 
-    void reproducirSonidoPorRespuesta(String nombreSonido) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        if (StateManager.audioReproduce) {
-            AudioInputStream audioInput = AudioSystem.getAudioInputStream(Utils.downloadUsingStream(nombreSonido));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInput);
-            clip.start();
-        }
+    AudioInputStream reproducirSonidoPorRespuesta(String nombreSonido) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        AudioInputStream audioEffecto = null;
+        audioEffecto = AudioSystem.getAudioInputStream(Utils.downloadUsingStream(nombreSonido));
+        return audioEffecto;
     }
 }

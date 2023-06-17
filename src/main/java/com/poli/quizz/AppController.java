@@ -8,6 +8,9 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,7 +28,7 @@ public class AppController {
     Stage escenario;
     Clip musica;
     Scene escenaPrincipal;
-    
+
     /**
      * Inicializa la ventana
      */
@@ -39,40 +42,76 @@ public class AppController {
     public void setClip(Clip musica) {
         this.musica = musica;
     }
-    
+
     /**
      * asigna la escena principal
      */
     public void setScene(Scene escenaPrincipal) {
         this.escenaPrincipal = escenaPrincipal;
     }
-    
-    /**
-     * Cambia la escena
-     * de la
-     * ventana
-     * */
-    public void ChangeScene(ActionEvent ev) throws UnsupportedAudioFileException, IOException {
-            this.escenario.close();
-            MFXTextField userName = (MFXTextField) this.escenaPrincipal.lookup("#userName");
-            StateManager.nombreUsuario = userName.getText();
 
-            Utils instanciaUtils = Utils.getInstance();
-            FXMLLoader cargaFxml = instanciaUtils.getFxmlLoader("/fxml/App.fxml");
-            Scene escena = Utils.createScene(cargaFxml);
-            MFXThemeManager.addOn(escena, Themes.DEFAULT, Themes.LEGACY);
-            AppController controllerInitial = (AppController) cargaFxml.getController();
-            controllerInitial.setStage(this.escenario);
-            this.escenario.setScene(escena);
-            this.escenario.show();
+    /**
+     * Cambia la escena de la ventana
+     *
+     */
+    public void ChangeScene(ActionEvent ev) throws UnsupportedAudioFileException, IOException, InterruptedException {
+        Utils.mostrarLoader(this.escenario);
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        executorService.execute(() -> {
+            try {
+                Thread.sleep(9000);
+                Platform.runLater(() -> {
+                    try {
+                        this.escenario.close();
+                        MFXTextField userName = (MFXTextField) this.escenaPrincipal.lookup("#userName");
+                        StateManager.nombreUsuario = userName.getText();
+                        
+                        Utils instanciaUtils = Utils.getInstance();
+                        FXMLLoader cargaFxml = instanciaUtils.getFxmlLoader("/fxml/App.fxml");
+                        Scene escena = Utils.createScene(cargaFxml);
+                        MFXThemeManager.addOn(escena, Themes.DEFAULT, Themes.LEGACY);
+                        AppController controllerInitial = (AppController) cargaFxml.getController();
+                        controllerInitial.setStage(this.escenario);
+                        this.escenario.setScene(escena);
+                        this.escenario.show();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                });
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        });
+
     }
-    
+
     /**
      * Siguiente escena
      */
-    public void NextScene(ActionEvent ev) throws UnsupportedAudioFileException{
+    public void NextScene(ActionEvent ev) throws UnsupportedAudioFileException, InterruptedException {
         Utils utilidades = Utils.getInstance();
-        utilidades.ChangeSceneUtil(this.musica, "/fxml/SceneOne.fxml",this.escenario);
+        Utils.mostrarLoader(this.escenario);
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        
+        executorService.execute(() -> {
+            try {
+                Thread.sleep(5000);
+                Platform.runLater(() -> {
+                    try {
+                        utilidades.ChangeSceneUtil(this.musica, "/fxml/SceneOne.fxml", this.escenario);
+                    } catch (UnsupportedAudioFileException ex) {
+                        ex.printStackTrace();
+                    }
+                });
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+            
+        });
+        
+        
     }
 
 }
