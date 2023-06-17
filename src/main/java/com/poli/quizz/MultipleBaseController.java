@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +43,7 @@ public class MultipleBaseController {
     AudioInputStream respuestaCorrectaSonido;
     AudioInputStream respuestaIncorrectaSonido;
     Scene escenaActual;
-
+    boolean prevenirEjecucionDeTimer = false;
     String urlScene = "";
 
     /*
@@ -162,6 +163,7 @@ Inicializa controlador base
                 controllerInstanceFour.setRespuestaCorrecta(Pregunta4.Clock);
                 controllerInstanceFour.setNextScene();
                 controllerInstanceFour.Contador(newScene);
+                prevenirEjecucionDeTimer = true;
                 break;
             default:
                 throw new AssertionError();

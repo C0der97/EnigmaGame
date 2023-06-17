@@ -4,17 +4,12 @@
  */
 package com.poli.quizz;
 
-import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
-import java.time.Duration;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -28,7 +23,7 @@ public class PreguntaCuatroController extends MultipleBaseController {
     Integer i = 0;
 
     public void setNextScene() {
-        this.urlScene = "/fxml/SceneFour.fxml";
+        this.urlScene = "/fxml/SceneFive.fxml";
     }
 
     public void Contador(Scene escena) {
@@ -52,7 +47,8 @@ public class PreguntaCuatroController extends MultipleBaseController {
         onFinished = (EventHandler<ActionEvent>) (ActionEvent t) -> {
             //reset counter
             anTm.stop();
-            Platform.runLater(() -> {
+
+            if (!this.prevenirEjecucionDeTimer) {
                 StackPane loadingRoot = new StackPane();
                 Label txt = new Label("Tiempo finalizado siguiente pregunta...");
                 txt.setTextFill(Color.WHITE);
@@ -62,7 +58,8 @@ public class PreguntaCuatroController extends MultipleBaseController {
                 Scene mensaje = new Scene(loadingRoot);
                 this.stag.setScene(mensaje);
                 this.stag.show();
-            });
+            }
+
         };
 
         KeyFrame keyFrame;
@@ -70,7 +67,6 @@ public class PreguntaCuatroController extends MultipleBaseController {
 
         //add the keyframe to the timeline
         tm.getKeyFrames().add(keyFrame);
-
         tm.play();
         anTm.start();
     }
