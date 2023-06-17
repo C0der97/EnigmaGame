@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaDosController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaDosController">
    <ImageView fitHeight="380.0" fitWidth="330.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../3.png" />
@@ -29,14 +29,14 @@
                <Font name="Berlin Sans FB" size="19.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="174.0" prefHeight="47.0" prefWidth="149.0" text="Pregunta 2/4" textFill="WHITE">
+         <Label alignment="CENTER" layoutX="174.0" prefHeight="47.0" prefWidth="149.0" text="Pregunta 2/3" textFill="WHITE">
             <font>
                <Font name="System Bold" size="20.0" />
             </font>
          </Label>
          <Label layoutX="145.0" layoutY="15.0" prefHeight="17.0" prefWidth="31.0" text="Ptos" textFill="WHITE" />
          <Label id="puntos" layoutX="131.0" layoutY="15.0" prefHeight="17.0" prefWidth="17.0" text="0" textFill="WHITE" />
-         <Label id="userName" layoutX="138.0" layoutY="87.0" text="Username" textFill="WHITE" />
+         <Label id="userName" layoutX="138.0" layoutY="87.0" text="Username" textFill="#00ffee" />
       </children>
    </Pane>
    <Pane layoutX="69.0" layoutY="143.0" opacity="0.44" prefHeight="157.0" prefWidth="190.0" style="-fx-background-color: black; -fx-background-radius: 10;" />

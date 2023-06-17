@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -20,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -39,6 +41,7 @@ public class MultipleBaseController {
     Clip music;
     AudioInputStream respuestaCorrectaSonido;
     AudioInputStream respuestaIncorrectaSonido;
+    Scene escenaActual;
 
     String urlScene = "";
 
@@ -56,6 +59,7 @@ Inicializa controlador base
             Scene main_Scene) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         this.modelo = model;
         this.music = music;
+        this.escenaActual = main_Scene;
         this.stag = initialWindow;
         Label lblPuntos = (Label) main_Scene.lookup("#puntos");
         if (lblPuntos != null) {
@@ -157,6 +161,7 @@ Inicializa controlador base
                 controllerInstanceFour.initialize(new PreguntaMultiple(), this.stag, music, newScene);
                 controllerInstanceFour.setRespuestaCorrecta(Pregunta4.Clock);
                 controllerInstanceFour.setNextScene();
+                controllerInstanceFour.Contador(newScene);
                 break;
             default:
                 throw new AssertionError();
