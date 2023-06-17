@@ -7,10 +7,8 @@ package com.poli.quizz;
 import com.poli.quizz.Enums.Pregunta2;
 import com.poli.quizz.Enums.Pregunta3;
 import com.poli.quizz.Enums.Pregunta4;
-import java.io.File;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -31,7 +29,7 @@ import models.PreguntaMultiple;
  */
 public class MultipleBaseController {
 
-    private PreguntaMultiple model;
+    private PreguntaMultiple modelo;
 
     Stage stag;
     Clip music;
@@ -39,14 +37,20 @@ public class MultipleBaseController {
 
     String urlScene = "";
 
-    private Utils Utilidades;
-
+/*
+Inicializa controlador base
+*/    
+    /**
+     * @param model
+     * @param initialWindow
+     * @param music
+     * @param main_Scene
+     */
     public void initialize(PreguntaMultiple model, Stage initialWindow, Clip music,
             Scene main_Scene) {
-        this.model = model;
+        this.modelo = model;
         this.music = music;
         this.stag = initialWindow;
-        this.Utilidades = new Utils();
         this.mainScene = main_Scene;
         Label lblPuntos = (Label) main_Scene.lookup("#puntos");
         if (lblPuntos != null) {
@@ -54,21 +58,30 @@ public class MultipleBaseController {
         }
         Label userName = (Label) main_Scene.lookup("#userName");
         if (userName != null) {
-            userName.setText(StateManager.userName);
+            userName.setText(StateManager.nombreUsuario);
         }
     }
 
     void setRespuestaCorrecta(int respuesta) {
-        this.model.setRespuestaCorrecta(respuesta);
+        this.modelo.setRespuestaCorrecta(respuesta);
     }
 
+    /*
+     * Seleccionar opcion de respuesta
+     */
+    /**
+     * @param event
+     * @throws UnsupportedAudioFileException
+     * @throws IOException
+     * @throws LineUnavailableException
+     */
     public void onClickOption(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         Pane optPane = (Pane) event.getSource();
         int optionSelected = Integer.parseInt(optPane.getId());
         ImageView opt = (ImageView) optPane.getChildren().get(0);
         opt.setStyle("-fx-opacity: 0.5");
 
-        if (this.model.checkRespuestaCorrecta(optionSelected)) {
+        if (this.modelo.checkRespuestaCorrecta(optionSelected)) {
             StateManager.Puntos += 10; // Sumar 10 puntos por respuesta correcta
             StateManager.RespuestasCorrectas++;
             reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/passed.wav");
@@ -81,14 +94,13 @@ public class MultipleBaseController {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Respuesta Incorrecta!! ");
             alert.showAndWait();
         }
-
         this.changeScene();
     }
 
     void changeScene() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(this.urlScene));
-        Parent root = loader.load();
-        Scene newScene = new Scene(root);
+        FXMLLoader loader = Utils.getInstance().getFxmlLoader(this.urlScene);;
+        Scene newScene = Utils.createScene(loader);
+
         if (this.music != null) {
             this.music.stop();
         }

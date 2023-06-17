@@ -26,10 +26,27 @@ import models.PreguntaMultiple;
  *
  * @author bare-
  */
-public class Utils {
+public final class Utils {
+
+
+    private static Utils instance;
+
+    public static Utils getInstance() {
+                if (instance == null) {
+            instance = new Utils();
+        }
+        return instance;
+    }
+
+    public static Scene scene;
 
     static boolean isReproducingAudio = false;
 
+    /**
+     * @param urlResource
+     * @return
+     * @throws IOException
+     */
     public void ChangeSceneUtil(
             Clip music,
             String sceneName,
@@ -39,6 +56,22 @@ public class Utils {
             if (music != null) {
                 music.stop();
             }
+            FXMLLoader loader = getFxmlLoader(sceneName);
+            Scene newScene = Utils.createScene(loader);
+            MFXThemeManager.addOn(newScene, Themes.DEFAULT, Themes.LEGACY);
+            Object sceneController = loader.getController();
+            
+            Label userName = (Label) newScene.lookup("#userName");
+            if(userName != null){
+               userName.setText(StateManager.nombreUsuario);
+            }
+
+            PreguntaMultipleController controllerInstance = (PreguntaMultipleController) sceneController;
+            controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music,newScene);
+            controllerInstance.setRespuestaCorrecta(Pregunta1.Egg);
+            controllerInstance.setNextScene();
+            stageInitial.setScene(newScene);
+
             if (!isReproducingAudio && StateManager.audioReproduce) {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(
                         Utils.downloadUsingStream("https://rainhearth.000webhostapp.com/toneGameEgypt.wav")
@@ -49,35 +82,55 @@ public class Utils {
                 Utils.isReproducingAudio = true;
             }
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(sceneName));
-            Parent root = loader.load();
-            Scene newScene = new Scene(root);
-            MFXThemeManager.addOn(newScene, Themes.DEFAULT, Themes.LEGACY);
-            Object sceneController = loader.getController();
-            
-            Label userName = (Label) newScene.lookup("#userName");
-            if(userName != null){
-               userName.setText(StateManager.userName);
-            }
-
-            PreguntaMultipleController controllerInstance = (PreguntaMultipleController) sceneController;
-            controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music,newScene);
-            controllerInstance.setRespuestaCorrecta(Pregunta1.Egg);
-            controllerInstance.setNextScene();
-            stageInitial.setScene(newScene);
         } catch (Exception e) {
             System.out.println("Ha Ocurrido un error");
         }
     }
 
+    /**
+     * @param urlResource
+     * @return
+     * @throws IOException
+     */
     public static InputStream downloadUsingStream(String urlResource) throws IOException {
         URL url = new URL(urlResource);
-        //File targetFile = new File("MoonKnight.wav");
-        //OutputStream outStream = new FileOutputStream(targetFile);
         BufferedInputStream bis = new BufferedInputStream(url.openStream());
-        //outStream.write(bis.readAllBytes());
         InputStream is = new ByteArrayInputStream(bis.readAllBytes());
         bis.close();
         return is;
+    }
+
+    /**
+     * @param fxmlName
+     * @param classData
+     * @return
+     * @throws IOException
+     */
+    public FXMLLoader getFxmlLoader(
+        String fxmlName) throws IOException {
+           return new FXMLLoader(Utils.getInstance().getClass().getResource(fxmlName));
+    }
+
+    /**
+     * @param sceneName
+     * @param stageInitial
+     * @param classData
+     * @return
+     * @throws IOException
+     */
+    public static Scene createScene(FXMLLoader fxmlLoader) throws IOException {
+        Parent load = fxmlLoader.load();
+        Scene scene = new Scene(load);
+        MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
+        return scene;
+    }
+
+    /**
+     * @param loaderFxml
+     * @return
+     * @throws IOException
+     */
+    public static Object getController(FXMLLoader loaderFxml) throws IOException {
+       return loaderFxml.getController();
     }
 }

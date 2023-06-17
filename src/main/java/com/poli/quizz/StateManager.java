@@ -13,5 +13,5 @@ public class StateManager {
     public static int Puntos = 0;    
     public static int RespuestasCorrectas = 0;
     public static final boolean audioReproduce = false;
-    public static String userName = "";
+    public static String nombreUsuario = "";
 }

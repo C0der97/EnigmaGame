@@ -10,7 +10,6 @@ import io.github.palexdev.materialfx.css.themes.Themes;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javax.sound.sampled.Clip;
@@ -23,38 +22,57 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class AppController {
 
-    Stage stag;
-    Clip music;
-    Scene mainScene;
+    Stage escenario;
+    Clip musica;
+    Scene escenaPrincipal;
     
-    public void setStage(Stage initialWindow) {
-        this.stag = initialWindow;
+    /**
+     * Inicializa la ventana
+     */
+    public void setStage(Stage escenarioInicial) {
+        this.escenario = escenarioInicial;
     }
 
-    public void setClip(Clip music) {
-        this.music = music;
+    /**
+     * asigna el clip de musica
+     */
+    public void setClip(Clip musica) {
+        this.musica = musica;
     }
     
-    public void setScene(Scene mainS) {
-        this.mainScene = mainS;
+    /**
+     * asigna la escena principal
+     */
+    public void setScene(Scene escenaPrincipal) {
+        this.escenaPrincipal = escenaPrincipal;
     }
     
+    /**
+     * Cambia la escena
+     * de la
+     * ventana
+     * */
     public void ChangeScene(ActionEvent ev) throws UnsupportedAudioFileException, IOException {
-            MFXTextField userName = (MFXTextField) this.mainScene.lookup("#userName");
-            StateManager.userName = userName.getText();
-            FXMLLoader loadr = new FXMLLoader(getClass().getResource("/fxml/App.fxml"));
-            Parent load = loadr.load();
-            var scene = new Scene(load);
-            MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
-            var controllerInitial = (AppController) loadr.getController();
-            controllerInitial.setStage(this.stag);
-            this.stag.setScene(scene);
-            this.stag.show();
+            this.escenario.close();
+            MFXTextField userName = (MFXTextField) this.escenaPrincipal.lookup("#userName");
+            StateManager.nombreUsuario = userName.getText();
+
+            Utils instanciaUtils = Utils.getInstance();
+            FXMLLoader cargaFxml = instanciaUtils.getFxmlLoader("/fxml/App.fxml");
+            Scene escena = Utils.createScene(cargaFxml);
+            MFXThemeManager.addOn(escena, Themes.DEFAULT, Themes.LEGACY);
+            AppController controllerInitial = (AppController) cargaFxml.getController();
+            controllerInitial.setStage(this.escenario);
+            this.escenario.setScene(escena);
+            this.escenario.show();
     }
     
+    /**
+     * Siguiente escena
+     */
     public void NextScene(ActionEvent ev) throws UnsupportedAudioFileException{
-        Utils utilidades =new Utils();
-        utilidades.ChangeSceneUtil(this.music, "/fxml/SceneOne.fxml",this.stag);
+        Utils utilidades = Utils.getInstance();
+        utilidades.ChangeSceneUtil(this.musica, "/fxml/SceneOne.fxml",this.escenario);
     }
 
 }
