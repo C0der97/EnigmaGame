@@ -119,7 +119,7 @@ Inicializa controlador base
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(() -> {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException ex) {
             }
             Platform.runLater(() -> {

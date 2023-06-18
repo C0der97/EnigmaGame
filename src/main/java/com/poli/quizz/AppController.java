@@ -61,7 +61,7 @@ public class AppController {
 
         executorService.execute(() -> {
             try {
-                Thread.sleep(9000);
+                Thread.sleep(2000);
                 Platform.runLater(() -> {
                     try {
                         this.escenario.close();
@@ -71,7 +71,6 @@ public class AppController {
                         Utils instanciaUtils = Utils.getInstance();
                         FXMLLoader cargaFxml = instanciaUtils.getFxmlLoader("/fxml/App.fxml");
                         Scene escena = Utils.createScene(cargaFxml);
-                        MFXThemeManager.addOn(escena, Themes.DEFAULT, Themes.LEGACY);
                         AppController controllerInitial = (AppController) cargaFxml.getController();
                         controllerInitial.setStage(this.escenario);
                         this.escenario.setScene(escena);
@@ -97,7 +96,7 @@ public class AppController {
         
         executorService.execute(() -> {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
                 Platform.runLater(() -> {
                     try {
                         utilidades.ChangeSceneUtil(this.musica, "/fxml/SceneOne.fxml", this.escenario);

@@ -64,7 +64,6 @@ public final class Utils {
             }
             FXMLLoader loader = getFxmlLoader(sceneName);
             Scene newScene = Utils.createScene(loader);
-            MFXThemeManager.addOn(newScene, Themes.DEFAULT, Themes.LEGACY);
             Object sceneController = loader.getController();
             
             Label userName = (Label) newScene.lookup("#userName");
@@ -125,7 +124,6 @@ public final class Utils {
     public static Scene createScene(FXMLLoader fxmlLoader) throws IOException {
         Parent load = fxmlLoader.load();
         Scene scene = new Scene(load);
-        MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
         return scene;
     }
 
@@ -146,7 +144,6 @@ public final class Utils {
             loadingRoot.getChildren().add(sp);
             loadingRoot.getChildren().add(txt);
             Scene indicador = new Scene(loadingRoot);
-            MFXThemeManager.addOn(indicador, Themes.DEFAULT, Themes.LEGACY);
     
             escenario.setTitle("Enigma");
             loadingRoot.setStyle("-fx-background-color: rgba(0, 0, 0, 1);");

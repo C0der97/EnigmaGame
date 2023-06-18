@@ -32,7 +32,7 @@ public class App extends Application {
 
             executorService.execute(() -> {
                 try {
-                    Thread.sleep(7000);
+                    Thread.sleep(2000);
                     Platform.runLater(() -> {
                         try {
                             stage.close();
