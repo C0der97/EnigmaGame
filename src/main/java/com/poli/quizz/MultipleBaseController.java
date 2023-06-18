@@ -11,9 +11,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -22,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -55,6 +52,8 @@ Inicializa controlador base
      * @param music
      * @param main_Scene
      * @throws javax.sound.sampled.UnsupportedAudioFileException
+     * @throws java.io.IOException
+     * @throws javax.sound.sampled.LineUnavailableException
      */
     public void initialize(PreguntaMultiple model, Stage initialWindow, Clip music,
             Scene main_Scene) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
