@@ -24,7 +24,7 @@ public class StateManager {
     /**
      * activar audio de juego
      */
-    public static final boolean audioReproduce = false;
+    public static final boolean audioReproduce = true;
         
     /**
      * Almacenar nombre de usuario

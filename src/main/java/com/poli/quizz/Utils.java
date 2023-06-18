@@ -6,11 +6,10 @@ package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta1;
 import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
-import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
-import io.github.palexdev.materialfx.css.themes.Themes;
-
 import java.io.*;
 import java.net.URL;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,11 +31,10 @@ import models.PreguntaMultiple;
  */
 public final class Utils {
 
-
     private static Utils instance;
 
     public static Utils getInstance() {
-                if (instance == null) {
+        if (instance == null) {
             instance = new Utils();
         }
         return instance;
@@ -65,26 +63,40 @@ public final class Utils {
             FXMLLoader loader = getFxmlLoader(sceneName);
             Scene newScene = Utils.createScene(loader);
             Object sceneController = loader.getController();
-            
+
             Label userName = (Label) newScene.lookup("#userName");
-            if(userName != null){
-               userName.setText(StateManager.nombreUsuario);
+            if (userName != null) {
+                userName.setText(StateManager.nombreUsuario);
             }
 
             PreguntaMultipleController controllerInstance = (PreguntaMultipleController) sceneController;
-            controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music,newScene);
+            controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music, newScene);
             controllerInstance.setRespuestaCorrecta(Pregunta1.Egg.ordinal());
             controllerInstance.setNextScene();
             stageInitial.setScene(newScene);
 
             if (!isReproducingAudio && StateManager.audioReproduce) {
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(
-                        Utils.downloadUsingStream("https://rainhearth.000webhostapp.com/toneGameEgypt.wav")
-                );
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.start();
-                Utils.isReproducingAudio = true;
+
+                ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+                executorService.execute(() -> {
+                    AudioInputStream audioInput;
+                    try {
+                        audioInput = AudioSystem.getAudioInputStream(
+                                Utils.downloadUsingStream("https://rainhearth.000webhostapp.com/toneGameEgypt.wav"));
+                        Clip clip = AudioSystem.getClip();
+
+                        clip.open(audioInput);
+                        clip.start();
+                    } catch (LineUnavailableException | IOException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedAudioFileException e) {
+                        e.printStackTrace();
+                    }
+                    Utils.isReproducingAudio = true;
+                });
+
+                executorService.shutdown();
             }
 
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
@@ -112,8 +124,8 @@ public final class Utils {
      * @throws IOException
      */
     public FXMLLoader getFxmlLoader(
-        String fxmlName) throws IOException {
-           return new FXMLLoader(Utils.getInstance().getClass().getResource(fxmlName));
+            String fxmlName) throws IOException {
+        return new FXMLLoader(Utils.getInstance().getClass().getResource(fxmlName));
     }
 
     /**
@@ -133,21 +145,21 @@ public final class Utils {
      * @throws IOException
      */
     public static Object getController(FXMLLoader loaderFxml) throws IOException {
-       return loaderFxml.getController();
+        return loaderFxml.getController();
     }
-    
-    public static void mostrarLoader(Stage escenario) throws InterruptedException{
-            StackPane loadingRoot = new StackPane();
-            final MFXProgressSpinner sp = new MFXProgressSpinner();
-            Label txt = new Label("Cargando...");
-            txt.setTextFill(Color.WHITE);
-            loadingRoot.getChildren().add(sp);
-            loadingRoot.getChildren().add(txt);
-            Scene indicador = new Scene(loadingRoot);
-    
-            escenario.setTitle("Enigma");
-            loadingRoot.setStyle("-fx-background-color: rgba(0, 0, 0, 1);");
-            escenario.setScene(indicador);
-            escenario.show();
+
+    public static void mostrarLoader(Stage escenario) throws InterruptedException {
+        StackPane loadingRoot = new StackPane();
+        final MFXProgressSpinner sp = new MFXProgressSpinner();
+        Label txt = new Label("Cargando...");
+        txt.setTextFill(Color.WHITE);
+        loadingRoot.getChildren().add(sp);
+        loadingRoot.getChildren().add(txt);
+        Scene indicador = new Scene(loadingRoot);
+
+        escenario.setTitle("Enigma");
+        loadingRoot.setStyle("-fx-background-color: rgba(0, 0, 0, 1);");
+        escenario.setScene(indicador);
+        escenario.show();
     }
 }
