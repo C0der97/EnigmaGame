@@ -8,9 +8,11 @@ package com.poli.quizz.Enums;
  *
  * @author JHON SANCHEZ
  */
-public class Pregunta4 {
-    public static final int Notebook = 1;
-    public static final int Rainbow = 2;
-    public static final int Clock = 3;
-    public static final int Compass = 4;  
+public enum Pregunta4 {
+
+    Default,
+    Notebook,
+    Rainbow,
+    Clock,
+    Compass; 
 }

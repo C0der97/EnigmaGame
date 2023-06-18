@@ -148,19 +148,19 @@ Inicializa controlador base
             case "class com.poli.quizz.PreguntaDosController":
                 PreguntaDosController controllerInstanceTwo = (PreguntaDosController) sceneController;
                 controllerInstanceTwo.initialize(new PreguntaMultiple(), this.stag, music, newScene);
-                controllerInstanceTwo.setRespuestaCorrecta(Pregunta2.Abocado);
+                controllerInstanceTwo.setRespuestaCorrecta(Pregunta2.Abocado.ordinal());
                 controllerInstanceTwo.setNextScene();
                 break;
             case "class com.poli.quizz.PreguntaTresController":
                 PreguntaTresController controllerInstanceThree = (PreguntaTresController) sceneController;
                 controllerInstanceThree.initialize(new PreguntaMultiple(), this.stag, music, newScene);
-                controllerInstanceThree.setRespuestaCorrecta(Pregunta3.Knife);
+                controllerInstanceThree.setRespuestaCorrecta(Pregunta3.Knife.ordinal());
                 controllerInstanceThree.setNextScene();
                 break;
             case "class com.poli.quizz.PreguntaCuatroController":
                 PreguntaCuatroController controllerInstanceFour = (PreguntaCuatroController) sceneController;
                 controllerInstanceFour.initialize(new PreguntaMultiple(), this.stag, music, newScene);
-                controllerInstanceFour.setRespuestaCorrecta(Pregunta4.Clock);
+                controllerInstanceFour.setRespuestaCorrecta(Pregunta4.Clock.ordinal());
                 controllerInstanceFour.setNextScene();
                 controllerInstanceFour.Contador(newScene);
                 prevenirEjecucionDeTimer = true;

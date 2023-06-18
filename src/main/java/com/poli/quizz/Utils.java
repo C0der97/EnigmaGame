@@ -73,7 +73,7 @@ public final class Utils {
 
             PreguntaMultipleController controllerInstance = (PreguntaMultipleController) sceneController;
             controllerInstance.initialize(new PreguntaMultiple(), stageInitial, music,newScene);
-            controllerInstance.setRespuestaCorrecta(Pregunta1.Egg);
+            controllerInstance.setRespuestaCorrecta(Pregunta1.Egg.ordinal());
             controllerInstance.setNextScene();
             stageInitial.setScene(newScene);
 

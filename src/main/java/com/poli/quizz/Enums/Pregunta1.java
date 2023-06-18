@@ -8,10 +8,10 @@ package com.poli.quizz.Enums;
  *
  * @author bare-
  */
-public class Pregunta1 {
-
-    public static final int Egg = 1;
-    public static final int Chicken = 4;
-    public static final int Nurse = 2;
-    public static final int Onion = 3;
+public enum Pregunta1 {
+    Default,
+    Egg,
+    Chicken,
+    Nurse,
+    Onion
 }
