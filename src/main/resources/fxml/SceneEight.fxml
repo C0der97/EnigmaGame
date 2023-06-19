@@ -20,14 +20,9 @@
    </ImageView>
    <Pane layoutX="-1.0" layoutY="-1.0" opacity="0.87" prefHeight="109.0" prefWidth="330.0" style="-fx-background-color: #000000;">
       <children>
-         <Label alignment="CENTER" prefHeight="47.0" prefWidth="101.0" text="Nivel 2" textFill="WHITE">
+         <Label alignment="CENTER" prefHeight="47.0" prefWidth="101.0" text="Nivel 3" textFill="WHITE">
             <font>
                <Font name="System Bold" size="20.0" />
-            </font>
-         </Label>
-         <Label layoutX="9.0" layoutY="40.0" prefHeight="57.0" prefWidth="307.0" text="Tengo agujas y no sé coser, tengo números y no sé leer" textFill="WHITE" wrapText="true">
-            <font>
-               <Font name="Berlin Sans FB" size="19.0" />
             </font>
          </Label>
          <Label alignment="CENTER" layoutX="174.0" prefHeight="47.0" prefWidth="149.0" text="Pregunta 2/3" textFill="WHITE">
@@ -38,6 +33,20 @@
                <Label layoutX="145.0" layoutY="15.0" prefHeight="17.0" prefWidth="31.0" text="Ptos" textFill="WHITE" />
          <Label id="puntos" layoutX="131.0" layoutY="15.0" prefHeight="17.0" prefWidth="17.0" text="0" textFill="WHITE" />
          <Label id="userName" layoutX="138.0" layoutY="91.0" text="Username" textFill="#00ffee" />
+         <Pane layoutX="117.0" layoutY="37.0" prefHeight="47.0" prefWidth="91.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+            <children>
+               <ImageView fitHeight="24.0" fitWidth="29.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../repro.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="24.0" fitWidth="29.0" layoutX="55.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../Pause.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </Pane>
       </children>
    </Pane>
    <Pane layoutX="69.0" layoutY="143.0" opacity="0.44" prefHeight="157.0" prefWidth="190.0" style="-fx-background-color: black; -fx-background-radius: 10;" />
@@ -48,7 +57,7 @@
                <Image url="@../cuaderno.png" />
             </image>
          </ImageView>
-         <Label layoutX="1.0" layoutY="35.0" text="Notebook" />
+         <Label layoutX="13.0" layoutY="35.0" text="Glove" />
       </children>
    </Pane>
    <Pane id="4" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -58,7 +67,7 @@
                <Image url="@../brujula.png" />
             </image>
          </ImageView>
-         <Label layoutX="7.0" layoutY="34.0" prefHeight="17.0" prefWidth="53.0" text="Compass" />
+         <Label layoutX="1.0" layoutY="34.0" prefHeight="17.0" prefWidth="53.0" text="Compass" />
       </children>
    </Pane>
    <Pane id="3" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -87,12 +96,6 @@
       </image>
    </ImageView>
    <Pane layoutX="98.0" layoutY="300.0" prefHeight="32.0" prefWidth="141.0" style="-fx-background-color: transparent;">
-      <children>
-         <Label id="contador" layoutX="42.0" layoutY="1.0" prefHeight="35.0" prefWidth="58.0" text="Tiempo Restante" textFill="#00fff2">
-            <font>
-               <Font size="24.0" />
-            </font></Label>
-      </children>
       <effect>
          <Glow level="1.0" />
       </effect>

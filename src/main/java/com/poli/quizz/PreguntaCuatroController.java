@@ -30,6 +30,6 @@ public class PreguntaCuatroController extends MultipleBaseController {
 
     @Override
     public void setRespuestaCorrecta(int respuesta) {
-        super.setRespuestaCorrecta(Pregunta4.Default.ordinal());
+        super.setRespuestaCorrecta(Pregunta4.Clock.ordinal());
     }
 }
