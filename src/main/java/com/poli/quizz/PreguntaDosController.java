@@ -4,6 +4,8 @@
  */
 package com.poli.quizz;
 
+import com.poli.quizz.Enums.Pregunta2;
+
 /**
  *
  * @author bare-
@@ -15,4 +17,8 @@ public class PreguntaDosController  extends MultipleBaseController{
         this.urlScene = "/fxml/SceneThree.fxml";
     }
   
+    @Override
+    public void setRespuestaCorrecta(int respuesta) {
+        super.setRespuestaCorrecta(Pregunta2.Abocado.ordinal());
+    }
 }

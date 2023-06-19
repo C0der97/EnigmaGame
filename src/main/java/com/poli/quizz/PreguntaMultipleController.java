@@ -4,6 +4,9 @@
  */
 package com.poli.quizz;
 
+import com.poli.quizz.Enums.Pregunta1;
+import com.poli.quizz.Enums.Pregunta2;
+
 /**
  *
  * @author c0der97
@@ -12,6 +15,12 @@ public class PreguntaMultipleController extends MultipleBaseController {
 
     public void setNextScene() {
         this.urlScene = "/fxml/SceneTwo.fxml";
+    }
+
+
+    @Override
+    public void setRespuestaCorrecta(int respuesta) {
+        super.setRespuestaCorrecta(Pregunta1.Egg.ordinal());
     }
 
 }
