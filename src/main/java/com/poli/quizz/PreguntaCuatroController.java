@@ -6,16 +6,6 @@ package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta4;
 
-import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-
 /**
  *
  * @author JHON SANCHEZ

@@ -4,9 +4,6 @@
  */
 package com.poli.quizz;
 
-import com.poli.quizz.Enums.Pregunta2;
-import com.poli.quizz.Enums.Pregunta3;
-import com.poli.quizz.Enums.Pregunta4;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
@@ -52,6 +49,8 @@ public class MultipleBaseController implements IMultipleQuestions {
     String urlScene = "";
     Boolean contador = false;
     Integer segundos = 0;
+    String sonidoPregunta = "";
+    AudioInputStream audioPregunta = null;
 
     /*
      * Inicializa controlador base
@@ -81,6 +80,10 @@ public class MultipleBaseController implements IMultipleQuestions {
         }
         this.respuestaCorrectaSonido = reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/passed.wav");
         this.respuestaIncorrectaSonido = reproducirSonidoPorRespuesta("https://rainhearth.000webhostapp.com/wrong.wav");
+    }
+
+    public void setSonidoPregunta(String sonidoPregunta) {
+        this.sonidoPregunta = sonidoPregunta;
     }
 
     public void setRespuestaCorrecta(int respuesta) {
@@ -115,7 +118,6 @@ public class MultipleBaseController implements IMultipleQuestions {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
             alert.showAndWait();
         } else {
-            StateManager.Puntos -= 10; // Restar 10 puntos por respuesta incorrecta
             StateManager.RespuestasCorrectas--;
             if (this.respuestaIncorrectaSonido != null) {
                 Clip sonido = AudioSystem.getClip();
@@ -150,6 +152,12 @@ public class MultipleBaseController implements IMultipleQuestions {
         controlador.initialize(new PreguntaMultiple(), this.stag, music, newScene);
         controlador.setRespuestaCorrecta(10);
         controlador.setNextScene();
+
+
+        if(sonidoPregunta != ""){
+            this.descargarSonidoPregunta();
+            this.reproducirSonidoRespuesta();
+        }
 
         if (this.contador) {
             controlador.Contador(newScene);
@@ -222,5 +230,23 @@ public class MultipleBaseController implements IMultipleQuestions {
         tm.getKeyFrames().add(keyFrame);
         tm.play();
         anTm.start();
+    }
+
+    /**
+     * @throws UnsupportedAudioFileException
+     * @throws IOException
+     */
+    public void descargarSonidoPregunta() throws UnsupportedAudioFileException, IOException {
+        audioPregunta = AudioSystem.getAudioInputStream(Utils.downloadUsingStream(this.sonidoPregunta));
+    }
+
+    /**
+     * @throws LineUnavailableException
+     * @throws IOException
+     */
+    public void reproducirSonidoRespuesta() throws LineUnavailableException, IOException {
+        Clip sonido = AudioSystem.getClip();
+        sonido.open(this.audioPregunta);
+        sonido.start();
     }
 }

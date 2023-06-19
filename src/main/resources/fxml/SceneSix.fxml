@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaCuatroController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaSeisController">
    <ImageView fitHeight="380.0" fitWidth="330.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../3.png" />
@@ -25,9 +25,9 @@
                <Font name="System Bold" size="20.0" />
             </font>
          </Label>
-         <Label layoutX="9.0" layoutY="40.0" prefHeight="57.0" prefWidth="307.0" text="Tengo agujas y no sé coser, tengo números y no sé leer" textFill="WHITE" wrapText="true">
+         <Label layoutX="9.0" layoutY="40.0" prefHeight="57.0" prefWidth="307.0" text="Mi avión es una escoba,negra y fea me verán,persigo siempre a las hadasque al verme se espantarán." textFill="WHITE" wrapText="true">
             <font>
-               <Font name="Berlin Sans FB" size="19.0" />
+               <Font name="Berlin Sans FB" size="14.0" />
             </font>
          </Label>
          <Label alignment="CENTER" layoutX="174.0" prefHeight="47.0" prefWidth="149.0" text="Pregunta 3/3" textFill="WHITE">
@@ -48,7 +48,7 @@
                <Image url="@../cuaderno.png" />
             </image>
          </ImageView>
-         <Label layoutX="1.0" layoutY="35.0" text="Notebook" />
+         <Label layoutX="12.0" layoutY="35.0" text="Dog" />
       </children>
    </Pane>
    <Pane id="4" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -58,7 +58,7 @@
                <Image url="@../brujula.png" />
             </image>
          </ImageView>
-         <Label layoutX="1.0" layoutY="34.0" prefHeight="17.0" prefWidth="53.0" text="Compass" />
+         <Label layoutX="12.0" layoutY="35.0" prefHeight="17.0" prefWidth="32.0" text="Witch" />
       </children>
    </Pane>
    <Pane id="3" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -68,7 +68,7 @@
                <Image url="@../reloj.png" />
             </image>
          </ImageView>
-         <Label layoutX="12.0" layoutY="36.0" text="Clock" />
+         <Label layoutX="12.0" layoutY="36.0" text="Doctor" />
       </children>
    </Pane>
    <Pane id="2" layoutX="181.0" layoutY="155.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -78,7 +78,7 @@
                <Image url="@../arco-iris.png" />
             </image>
          </ImageView>
-         <Label layoutX="6.0" layoutY="35.0" text="Rainbow" />
+         <Label layoutX="19.0" layoutY="35.0" text="Cat" />
       </children>
    </Pane>
    <ImageView fitHeight="41.0" fitWidth="88.0" layoutX="275.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">

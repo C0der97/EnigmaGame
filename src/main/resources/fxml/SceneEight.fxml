@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaCuatroController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaOchoController">
    <ImageView fitHeight="380.0" fitWidth="330.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../3.png" />
@@ -54,10 +54,10 @@
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../cuaderno.png" />
+               <Image url="@../gloves.png" />
             </image>
          </ImageView>
-         <Label layoutX="13.0" layoutY="35.0" text="Glove" />
+         <Label layoutX="13.0" layoutY="35.0" text="Gloves" />
       </children>
    </Pane>
    <Pane id="4" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -67,7 +67,7 @@
                <Image url="@../brujula.png" />
             </image>
          </ImageView>
-         <Label layoutX="1.0" layoutY="34.0" prefHeight="17.0" prefWidth="53.0" text="Compass" />
+         <Label layoutX="8.0" layoutY="34.0" prefHeight="17.0" prefWidth="53.0" text="Blender" />
       </children>
    </Pane>
    <Pane id="3" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -77,7 +77,7 @@
                <Image url="@../reloj.png" />
             </image>
          </ImageView>
-         <Label layoutX="12.0" layoutY="36.0" text="Clock" />
+         <Label layoutX="12.0" layoutY="36.0" text="Teapot" />
       </children>
    </Pane>
    <Pane id="2" layoutX="181.0" layoutY="155.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
@@ -87,7 +87,7 @@
                <Image url="@../arco-iris.png" />
             </image>
          </ImageView>
-         <Label layoutX="6.0" layoutY="35.0" text="Rainbow" />
+         <Label layoutX="8.0" layoutY="35.0" text="Toaster" />
       </children>
    </Pane>
    <ImageView fitHeight="41.0" fitWidth="88.0" layoutX="275.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">

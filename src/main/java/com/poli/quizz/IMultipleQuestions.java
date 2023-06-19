@@ -29,4 +29,6 @@ public interface IMultipleQuestions {
     void setNextScene();
 
     void Contador(Scene escena);
+
+    void setSonidoPregunta(String sonidoPregunta);
 }
