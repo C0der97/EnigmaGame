@@ -29,5 +29,5 @@ public class StateManager {
     /**
      * Almacenar nombre de usuario
      */
-    public static String nombreUsuario = "";
+    public static String nombreUsuario = "SIN_NOMBRE_USUARIO";
 }

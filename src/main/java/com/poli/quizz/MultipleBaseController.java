@@ -202,6 +202,15 @@ public class MultipleBaseController implements IMultipleQuestions {
                 Scene mensaje = new Scene(loadingRoot);
                 this.stag.setScene(mensaje);
                 this.stag.show();
+
+                try {
+                    Thread.sleep(4000);
+                    this.changeScene();
+                } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
         };
