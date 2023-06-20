@@ -20,7 +20,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.BooleanControl;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.Control;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import models.PreguntaMultiple;
@@ -83,10 +86,14 @@ public final class Utils {
                     AudioInputStream audioInput;
                     try {
                         audioInput = AudioSystem.getAudioInputStream(
-                                Utils.downloadUsingStream("https://rainhearth.000webhostapp.com/toneGameEgypt.wav"));
+                                Utils.downloadUsingStream("https://rainhearth.000webhostapp.com/SoundGam.wav"));
                         Clip clip = AudioSystem.getClip();
-
                         clip.open(audioInput);
+
+                        double gain = .2D;
+                        float dB = (float) (Math.log(gain) / Math.log(10.0) * 20.0);
+                        FloatControl controlVolume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                        controlVolume.setValue(dB);
                         clip.start();
                     } catch (LineUnavailableException | IOException e) {
                         e.printStackTrace();

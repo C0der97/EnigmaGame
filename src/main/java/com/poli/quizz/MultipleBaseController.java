@@ -153,8 +153,7 @@ public class MultipleBaseController implements IMultipleQuestions {
         controlador.setRespuestaCorrecta(10);
         controlador.setNextScene();
 
-
-        if(sonidoPregunta != ""){
+        if (sonidoPregunta != "") {
             this.descargarSonidoPregunta();
             this.reproducirSonidoRespuesta();
         }
@@ -182,6 +181,10 @@ public class MultipleBaseController implements IMultipleQuestions {
         Timeline tm = new Timeline();
 
         Label contadorLbl = (Label) escena.lookup("#contador");
+
+        if (contadorLbl == null) {
+            return;
+        }
 
         // You can add a specific action when each frame is started.
         AnimationTimer anTm;

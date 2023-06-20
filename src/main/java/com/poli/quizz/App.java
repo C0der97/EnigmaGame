@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -54,9 +55,10 @@ public class App extends Application {
         FXMLLoader loader = utilidades.getFxmlLoader("/fxml/User.fxml");
         Scene escena = Utils.createScene(loader);
         AppController controllerInitial = (AppController) Utils.getController(loader);
+        stage.getIcons().add(new Image("icono.jpg"));
         controllerInitial.setStage(stage);
         controllerInitial.setScene(escena);
-        getSoundAndPlayAsync(controllerInitial);
+        //getSoundAndPlayAsync(controllerInitial);
         stage.setScene(escena);
         stage.show();
     }

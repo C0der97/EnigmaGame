@@ -14,6 +14,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -67,7 +68,7 @@ public class AppController {
                         this.escenario.close();
                         MFXTextField userName = (MFXTextField) this.escenaPrincipal.lookup("#userName");
                         StateManager.nombreUsuario = userName.getText();
-                        
+
                         Utils instanciaUtils = Utils.getInstance();
                         FXMLLoader cargaFxml = instanciaUtils.getFxmlLoader("/fxml/App.fxml");
                         Scene escena = Utils.createScene(cargaFxml);
@@ -93,9 +94,12 @@ public class AppController {
         Utils utilidades = Utils.getInstance();
         Utils.mostrarLoader(this.escenario);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        
+
         executorService.execute(() -> {
             try {
+                if (this.musica != null) {
+                    this.musica.stop();
+                }
                 Thread.sleep(2000);
                 Platform.runLater(() -> {
                     try {
@@ -107,10 +111,9 @@ public class AppController {
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
-            
+
         });
-        
-        
+
     }
 
 }

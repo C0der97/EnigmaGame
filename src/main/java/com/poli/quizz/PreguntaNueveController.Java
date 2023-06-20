@@ -2,10 +2,11 @@ package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta4;
 
-public class PeguntaNueveController extends MultipleBaseController {
+public class PreguntaNueveController extends MultipleBaseController {
         public void setNextScene() {
         this.setSonidoPregunta("");
         this.contador = false;
+        this.prevenirEjecucionDeTimer = true;
         this.urlScene = "/fxml/EndGame.fxml";
     }
 

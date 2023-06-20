@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.EndGameController">
+   <ImageView id="Win" fitHeight="380.0" fitWidth="330.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <image>
+         <Image url="@../Winner.gif" />
+      </image>
+      <effect>
+         <Blend />
+      </effect>
+   </ImageView>
+   <ImageView id="Lose" fitHeight="380.0" fitWidth="330.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <image>
+         <Image url="@../Lose.gif" />
+      </image>
+      <effect>
+         <Blend />
+      </effect>
+   </ImageView>
+</AnchorPane>

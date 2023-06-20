@@ -4,7 +4,7 @@ import com.poli.quizz.Enums.Pregunta4;
 
 public class PreguntaCincoController extends MultipleBaseController {
         public void setNextScene() {
-        this.contador = false;
+        this.contador = true;
         this.urlScene = "/fxml/SceneSix.fxml";
     }
 
