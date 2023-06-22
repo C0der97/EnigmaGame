@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaCincoController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaCincoController">
    <ImageView fitHeight="380.0" fitWidth="330.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../3.png" />
@@ -45,7 +45,7 @@
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../cuaderno.png" />
+               <Image url="@../guitar.png" />
             </image>
          </ImageView>
          <Label layoutX="10.0" layoutY="35.0" text="Guitar" />
@@ -55,7 +55,7 @@
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../brujula.png" />
+               <Image url="@../Flauta.png" />
             </image>
          </ImageView>
          <Label layoutX="17.0" layoutY="34.0" prefHeight="17.0" prefWidth="53.0" text="Flute" />
@@ -65,7 +65,7 @@
       <children>
          <ImageView id="4" fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../reloj.png" />
+               <Image url="@../piano.png" />
             </image>
          </ImageView>
          <Label layoutX="13.0" layoutY="36.0" text="piano" />
@@ -75,7 +75,7 @@
       <children>
          <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../arco-iris.png" />
+               <Image url="@../bell.png" />
             </image>
          </ImageView>
          <Label layoutX="20.0" layoutY="35.0" text="Bell" />

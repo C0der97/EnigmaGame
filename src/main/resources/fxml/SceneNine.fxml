@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaNueveController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaNueveController">
    <ImageView fitHeight="380.0" fitWidth="330.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../3.png" />
@@ -54,7 +54,7 @@
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../cuaderno.png" />
+               <Image url="@../padre.png" />
             </image>
          </ImageView>
          <Label layoutX="12.0" layoutY="35.0" text="Father" />
@@ -62,9 +62,9 @@
    </Pane>
    <Pane id="4" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
-         <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="15.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../brujula.png" />
+               <Image url="@../madre.png" />
             </image>
          </ImageView>
          <Label layoutX="9.0" layoutY="34.0" prefHeight="17.0" prefWidth="53.0" text="Mother" />
@@ -72,9 +72,9 @@
    </Pane>
    <Pane id="3" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
-         <ImageView id="4" fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView id="4" fitHeight="32.0" fitWidth="34.0" layoutX="17.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../reloj.png" />
+               <Image url="@../primo.png" />
             </image>
          </ImageView>
          <Label layoutX="12.0" layoutY="36.0" text="Cousin" />
