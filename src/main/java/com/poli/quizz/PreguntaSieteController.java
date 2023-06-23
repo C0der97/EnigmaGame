@@ -19,6 +19,8 @@ public class PreguntaSieteController extends MultipleBaseController {
 
     @Override
     public void setRespuestaCorrecta(int respuesta) {
+              StateManager.RespuestasCorrectas = 0;
+        StateManager.CantidadRespuestas = 0;
         super.setRespuestaCorrecta(Pregunta7.Bottle.ordinal());
     }
 

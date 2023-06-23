@@ -21,6 +21,8 @@ public class StateManager {
      */
     public static int RespuestasCorrectas = 0;
 
+    public static int CantidadRespuestas = 0;
+
     /**
      * activar audio de juego
      */

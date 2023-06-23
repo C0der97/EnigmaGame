@@ -110,6 +110,8 @@ public class MultipleBaseController implements IMultipleQuestions {
         ImageView opt = (ImageView) optPane.getChildren().get(0);
         opt.setStyle("-fx-opacity: 0.5");
 
+        StateManager.CantidadRespuestas++;
+
         if (this.modelo.checkRespuestaCorrecta(optionSelected)) {
             StateManager.Puntos += 10; // Sumar 10 puntos por respuesta correcta
             StateManager.RespuestasCorrectas++;
@@ -121,7 +123,6 @@ public class MultipleBaseController implements IMultipleQuestions {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Respuesta Correcta!! ");
             alert.showAndWait();
         } else {
-            StateManager.RespuestasCorrectas--;
             if (this.respuestaIncorrectaSonido != null) {
                 Clip sonido = AudioSystem.getClip();
                 sonido.open(this.respuestaIncorrectaSonido);
@@ -146,10 +147,10 @@ public class MultipleBaseController implements IMultipleQuestions {
 
     public void changeScene() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
 
-        if(StateManager.RespuestasCorrectas >= 2 && StateManager.Puntos >= 10){
+        if(StateManager.RespuestasCorrectas < 2 && StateManager.CantidadRespuestas > 2){
             this.urlScene = "/fxml/EndGame.fxml";
             Alert alert = new Alert(AlertType.ERROR, "Perdiste");
-            alert.show();
+            alert.showAndWait();
         }
 
         FXMLLoader loader = Utils.getInstance().getFxmlLoader(this.urlScene);
@@ -175,10 +176,13 @@ public class MultipleBaseController implements IMultipleQuestions {
 
         this.stag.setScene(newScene);
 
-                if(StateManager.RespuestasCorrectas <= 6){
+                if(StateManager.CantidadRespuestas >= 2 && StateManager.RespuestasCorrectas <= 2){
                                     ImageView imgPerdedor = (ImageView) newScene.lookup("#Lose");
                                  imgPerdedor.setVisible(true);
 
+        }else{
+                                   ImageView imgPerdedor = (ImageView) newScene.lookup("#Win");
+                                 imgPerdedor.setVisible(true);
         }
     }
 

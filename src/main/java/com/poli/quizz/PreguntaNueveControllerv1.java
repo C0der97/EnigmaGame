@@ -2,7 +2,7 @@ package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta9;
 
-public class PreguntaNueveController extends MultipleBaseController {
+public class PreguntaNueveControllerv1 extends MultipleBaseController {
         public void setNextScene() {
         this.setSonidoPregunta("");
         this.contador = false;

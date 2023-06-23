@@ -20,6 +20,8 @@ public class PreguntaCuatroController extends MultipleBaseController {
 
     @Override
     public void setRespuestaCorrecta(int respuesta) {
+        StateManager.RespuestasCorrectas = 0;
+        StateManager.CantidadRespuestas = 0;
         super.setRespuestaCorrecta(Pregunta4.Clock.ordinal());
     }
 }
