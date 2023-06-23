@@ -11,8 +11,8 @@ package com.poli.quizz.Enums;
 public enum Pregunta5 {
 
     Default,
-    Notebook,
-    Rainbow,
-    Clock,
-    Compass; 
+    Guitar,
+    Bell,
+    Flute,
+    Piano; 
 }

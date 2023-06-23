@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaSieteController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="302.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poli.quizz.PreguntaSieteController">
    <ImageView fitHeight="380.0" fitWidth="330.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../3.png" />
@@ -35,7 +35,7 @@
          <Label id="userName" layoutX="138.0" layoutY="91.0" text="Username" textFill="#00ffee" />
          <Pane layoutX="117.0" layoutY="37.0" prefHeight="47.0" prefWidth="91.0" style="-fx-background-color: white; -fx-background-radius: 30;">
             <children>
-               <ImageView fitHeight="24.0" fitWidth="29.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="24.0" fitWidth="29.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#reproduceSonido" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../repro.png" />
                   </image>

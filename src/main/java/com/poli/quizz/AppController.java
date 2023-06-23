@@ -14,6 +14,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javax.sound.sampled.Clip;
@@ -56,31 +57,40 @@ public class AppController {
      *
      */
     public void ChangeScene(ActionEvent ev) throws UnsupportedAudioFileException, IOException, InterruptedException {
-        Utils.mostrarLoader(this.escenario);
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
         executorService.execute(() -> {
             try {
-                Thread.sleep(2000);
                 Platform.runLater(() -> {
                     try {
-                        this.escenario.close();
                         MFXTextField userName = (MFXTextField) this.escenaPrincipal.lookup("#userName");
                         StateManager.nombreUsuario = userName.getText();
 
-                        Utils instanciaUtils = Utils.getInstance();
+                        if(StateManager.nombreUsuario != ""){
+                                        Utils.mostrarLoader(this.escenario);
+                                                    this.escenario.close();
+                                                 Utils instanciaUtils = Utils.getInstance();
                         FXMLLoader cargaFxml = instanciaUtils.getFxmlLoader("/fxml/App.fxml");
                         Scene escena = Utils.createScene(cargaFxml);
                         AppController controllerInitial = (AppController) cargaFxml.getController();
                         controllerInitial.setStage(this.escenario);
                         this.escenario.setScene(escena);
                         this.escenario.show();
+                        }else{
+                                        Alert alert = new Alert(Alert.AlertType.ERROR, "Nombre de usuario Obligatorio!! ");
+            alert.showAndWait();
+                        }
+
+   
                     } catch (IOException ex) {
                         ex.printStackTrace();
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
                 });
-            } catch (InterruptedException ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         });

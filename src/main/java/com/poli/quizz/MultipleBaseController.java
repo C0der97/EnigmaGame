@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -30,6 +31,8 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import models.PreguntaMultiple;
 
 /**
@@ -142,6 +145,13 @@ public class MultipleBaseController implements IMultipleQuestions {
     }
 
     public void changeScene() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+
+        if(StateManager.RespuestasCorrectas >= 2 && StateManager.Puntos >= 10){
+            this.urlScene = "/fxml/EndGame.fxml";
+            Alert alert = new Alert(AlertType.ERROR, "Perdiste");
+            alert.show();
+        }
+
         FXMLLoader loader = Utils.getInstance().getFxmlLoader(this.urlScene);
         Scene newScene = Utils.createScene(loader);
 
@@ -164,6 +174,12 @@ public class MultipleBaseController implements IMultipleQuestions {
         }
 
         this.stag.setScene(newScene);
+
+                if(StateManager.RespuestasCorrectas <= 6){
+                                    ImageView imgPerdedor = (ImageView) newScene.lookup("#Lose");
+                                 imgPerdedor.setVisible(true);
+
+        }
     }
 
     public AudioInputStream reproducirSonidoPorRespuesta(String nombreSonido)
@@ -251,5 +267,12 @@ public class MultipleBaseController implements IMultipleQuestions {
         Clip sonido = AudioSystem.getClip();
         sonido.open(this.audioPregunta);
         sonido.start();
+    }
+
+    public void reproducirSonidoNuevamente() throws LineUnavailableException, IOException, UnsupportedAudioFileException{
+                if (this.sonidoPregunta != "") {
+            this.descargarSonidoPregunta();
+            this.reproducirSonidoRespuesta();
+        }
     }
 }

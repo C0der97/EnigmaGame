@@ -1,6 +1,6 @@
 package com.poli.quizz;
 
-import com.poli.quizz.Enums.Pregunta4;
+import com.poli.quizz.Enums.Pregunta5;
 
 public class PreguntaCincoController extends MultipleBaseController {
         public void setNextScene() {
@@ -10,6 +10,6 @@ public class PreguntaCincoController extends MultipleBaseController {
 
     @Override
     public void setRespuestaCorrecta(int respuesta) {
-        super.setRespuestaCorrecta(Pregunta4.Clock.ordinal());
+        super.setRespuestaCorrecta(Pregunta5.Bell.ordinal());
     }
 }
