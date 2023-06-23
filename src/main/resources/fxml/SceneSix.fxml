@@ -53,12 +53,12 @@
    </Pane>
    <Pane id="4" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
-         <ImageView id="4" fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../witch.png" />
             </image>
          </ImageView>
-         <Label layoutX="12.0" layoutY="35.0" prefHeight="17.0" prefWidth="32.0" text="Witch" />
+         <Label layoutX="12.0" layoutY="35.0" prefHeight="17.0" prefWidth="53.0" text="Witch" />
       </children>
    </Pane>
    <Pane id="3" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">

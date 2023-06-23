@@ -11,8 +11,8 @@ package com.poli.quizz.Enums;
 public enum Pregunta7 {
 
     Default,
-    Notebook,
-    Rainbow,
-    Clock,
-    Compass; 
+    Glass,
+    Phone,
+    Bottle,
+    PC; 
 }
