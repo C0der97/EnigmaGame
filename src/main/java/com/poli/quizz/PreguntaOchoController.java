@@ -1,6 +1,10 @@
 package com.poli.quizz;
 
 import com.poli.quizz.Enums.Pregunta8;
+import java.io.IOException;
+import javafx.scene.input.MouseEvent;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class PreguntaOchoController extends MultipleBaseController {
     public void setNextScene() {
@@ -14,5 +18,9 @@ public class PreguntaOchoController extends MultipleBaseController {
     @Override
     public void setRespuestaCorrecta(int respuesta) {
         super.setRespuestaCorrecta(Pregunta8.Gloves.ordinal());
+    }
+    
+    public void reproduceSonido(MouseEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException{
+      this.reproducirSonidoNuevamente();
     }
 }
