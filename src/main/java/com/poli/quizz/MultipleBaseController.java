@@ -176,13 +176,15 @@ public class MultipleBaseController implements IMultipleQuestions {
 
         this.stag.setScene(newScene);
 
-                if(StateManager.CantidadRespuestas >= 2 && StateManager.RespuestasCorrectas <= 2){
-                                    ImageView imgPerdedor = (ImageView) newScene.lookup("#Lose");
-                                 imgPerdedor.setVisible(true);
-
+        if(StateManager.CantidadRespuestas >= 2 && StateManager.RespuestasCorrectas <= 2){
+                ImageView imgPerdedor = (ImageView) newScene.lookup("#Lose");
+                imgPerdedor.setVisible(true);
+        }else if(StateManager.Puntos >= 60){
+                ImageView imgPerdedor = (ImageView) newScene.lookup("#Win");
+                imgPerdedor.setVisible(true);
         }else{
-                                   ImageView imgPerdedor = (ImageView) newScene.lookup("#Win");
-                                 imgPerdedor.setVisible(true);
+            ImageView imgPerdedor = (ImageView) newScene.lookup("#Lose");
+            imgPerdedor.setVisible(true);
         }
     }
 
@@ -274,7 +276,7 @@ public class MultipleBaseController implements IMultipleQuestions {
     }
 
     public void reproducirSonidoNuevamente() throws LineUnavailableException, IOException, UnsupportedAudioFileException{
-                if (this.sonidoPregunta != "") {
+        if (this.sonidoPregunta != "") {
             this.descargarSonidoPregunta();
             this.reproducirSonidoRespuesta();
         }

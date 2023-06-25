@@ -45,7 +45,7 @@
       </children>
    </Pane>
    <Pane layoutX="69.0" layoutY="143.0" opacity="0.44" prefHeight="157.0" prefWidth="190.0" style="-fx-background-color: black; -fx-background-radius: 10;" />
-   <Pane id="1" layoutX="83.0" layoutY="155.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+   <Pane id="4" layoutX="83.0" layoutY="155.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="13.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -55,7 +55,7 @@
          <Label layoutX="15.0" layoutY="35.0" text="Glass" />
       </children>
    </Pane>
-   <Pane id="4" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+   <Pane id="3" layoutX="83.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
          <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -65,7 +65,7 @@
          <Label layoutX="14.0" layoutY="35.0" prefHeight="17.0" prefWidth="41.0" text="Bottle" />
       </children>
    </Pane>
-   <Pane id="3" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+   <Pane id="1" layoutX="181.0" layoutY="235.0" onMouseClicked="#onClickOption" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: white; -fx-background-radius: 30;">
       <children>
          <ImageView id="4" fitHeight="32.0" fitWidth="34.0" layoutX="12.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
             <image>

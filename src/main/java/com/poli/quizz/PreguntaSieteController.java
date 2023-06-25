@@ -19,12 +19,12 @@ public class PreguntaSieteController extends MultipleBaseController {
 
     @Override
     public void setRespuestaCorrecta(int respuesta) {
-              StateManager.RespuestasCorrectas = 0;
+        StateManager.RespuestasCorrectas = 0;
         StateManager.CantidadRespuestas = 0;
         super.setRespuestaCorrecta(Pregunta7.Bottle.ordinal());
     }
 
-      public void reproduceSonido(MouseEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException{
-        this.reproducirSonidoNuevamente();
-      }
+    public void reproduceSonido(MouseEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException{
+      this.reproducirSonidoNuevamente();
+    }
 }
