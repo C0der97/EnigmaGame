@@ -17,6 +17,7 @@ public class PreguntaNueveControllerv1 extends MultipleBaseController {
     @Override
     public void setRespuestaCorrecta(int respuesta) {
         super.setRespuestaCorrecta(Pregunta9.Age.ordinal());
+        
     }
     
     public void reproduceSonido(MouseEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException{

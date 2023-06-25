@@ -176,15 +176,9 @@ public class MultipleBaseController implements IMultipleQuestions {
 
         this.stag.setScene(newScene);
 
-        if(StateManager.CantidadRespuestas >= 2 && StateManager.RespuestasCorrectas <= 2){
+        if(StateManager.CantidadRespuestas >= 2 && StateManager.RespuestasCorrectas <= 2 && StateManager.Puntos<60){
                 ImageView imgPerdedor = (ImageView) newScene.lookup("#Lose");
                 imgPerdedor.setVisible(true);
-        }else if(StateManager.Puntos >= 60){
-                ImageView imgPerdedor = (ImageView) newScene.lookup("#Win");
-                imgPerdedor.setVisible(true);
-        }else{
-            ImageView imgPerdedor = (ImageView) newScene.lookup("#Lose");
-            imgPerdedor.setVisible(true);
         }
     }
 
