@@ -38,6 +38,7 @@
                <Label layoutX="145.0" layoutY="15.0" prefHeight="17.0" prefWidth="31.0" text="Ptos" textFill="WHITE" />
          <Label id="puntos" layoutX="131.0" layoutY="15.0" prefHeight="17.0" prefWidth="17.0" text="0" textFill="WHITE" />
          <Label id="userName" layoutX="138.0" layoutY="91.0" text="Username" textFill="#00ffee" />
+         <Label layoutX="98.0" layoutY="1.0" text="Tiempo Limite 17 Segundos" textFill="WHITE" />
       </children>
    </Pane>
    <Pane layoutX="69.0" layoutY="143.0" opacity="0.44" prefHeight="157.0" prefWidth="190.0" style="-fx-background-color: black; -fx-background-radius: 10;" />
