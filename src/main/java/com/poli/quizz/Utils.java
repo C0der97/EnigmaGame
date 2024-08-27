@@ -78,34 +78,6 @@ public final class Utils {
             controllerInstance.setNextScene();
             stageInitial.setScene(newScene);
 
-            if (!isReproducingAudio && StateManager.audioReproduce) {
-
-                ExecutorService executorService = Executors.newSingleThreadExecutor();
-
-                executorService.execute(() -> {
-                    AudioInputStream audioInput;
-                    try {
-                        audioInput = AudioSystem.getAudioInputStream(
-                                Utils.downloadUsingStream("https://rainhearth.000webhostapp.com/SoundGam.wav"));
-                        Clip clip = AudioSystem.getClip();
-                        clip.open(audioInput);
-
-                        double gain = .2D;
-                        float dB = (float) (Math.log(gain) / Math.log(10.0) * 20.0);
-                        FloatControl controlVolume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-                        controlVolume.setValue(dB);
-                        clip.start();
-                    } catch (LineUnavailableException | IOException e) {
-                        e.printStackTrace();
-                    } catch (UnsupportedAudioFileException e) {
-                        e.printStackTrace();
-                    }
-                    Utils.isReproducingAudio = true;
-                });
-
-                executorService.shutdown();
-            }
-
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
             System.out.println("Ha Ocurrido un error");
         }
